@@ -74,38 +74,6 @@ public class AutoTiling : Tile
         {
             return "_0111";
         }
-        else if (tileMap.GetTile(position) == groundSprites[8])
-        {
-            return "_1000";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[9])
-        {
-            return "_1001";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[10])
-        {
-            return "_1010";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[11])
-        {
-            return "_1011";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[12])
-        {
-            return "_1100";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[13])
-        {
-            return "_1101";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[14])
-        {
-            return "_1110";
-        }
-        else if (tileMap.GetTile(position) == groundSprites[15])
-        {
-            return "_1111";
-        }
         else
         {
             return "_xxxx";
