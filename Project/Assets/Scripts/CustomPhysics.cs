@@ -119,11 +119,7 @@ public class CustomPhysics : GameMaster
 
             for (int i = 0; i < hitBufferList.Count; i++)
             {
-                if (hitBufferList[i].collider.isTrigger)
-                {
-                    Debug.Log("Hit a trigger bitch");
-                }
-                else
+                if (!hitBufferList[i].collider.isTrigger)
                 {
                     Vector2 currentNormal = hitBufferList[i].normal;
 

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4158434259220708}
   - component: {fileID: 212933900043197110}
   - component: {fileID: 61321332992661210}
+  - component: {fileID: 114369597540128898}
   m_Layer: 0
   m_Name: Bronze Fish (1 fish)
   m_TagString: Collectable
@@ -66,6 +67,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.19}
   m_EdgeRadius: 0
+--- !u!114 &114369597540128898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247014085285872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe78a64c348ce0340b07a437c514e311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerPrefab: {fileID: 1726895489141628, guid: 78f48429cbe4bce48b8f2941a64a0550,
+    type: 2}
+  maxHealth: 100
+  currentHealth: 0
+  fishPickUp: {fileID: 0}
 --- !u!212 &212933900043197110
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4509183816297726}
   - component: {fileID: 212886908554620514}
   - component: {fileID: 61926339515799294}
+  - component: {fileID: 114679236618730190}
   m_Layer: 0
   m_Name: Gold Fish (3 fish)
   m_TagString: Collectable
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372797599531622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98491335, y: 2.8417435, z: 0}
+  m_LocalPosition: {x: 0.98491335, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,6 +67,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.19}
   m_EdgeRadius: 0
+--- !u!114 &114679236618730190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372797599531622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe78a64c348ce0340b07a437c514e311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerPrefab: {fileID: 1726895489141628, guid: 78f48429cbe4bce48b8f2941a64a0550,
+    type: 2}
+  maxHealth: 100
+  currentHealth: 0
+  fishPickUp: {fileID: 0}
 --- !u!212 &212886908554620514
 SpriteRenderer:
   m_ObjectHideFlags: 1
