@@ -7,6 +7,9 @@ TagManager:
   - Ice
   - GameManager
   - Collectable
+  - SpawnPoint
+  - Platform
+  - Hook
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - 
   - 
   - Platform
-  - 
+  - Hook
   - 
   - 
   - 
