@@ -20,7 +20,6 @@ public class Abilities : PlayerController
         {
             joint = GetComponent<DistanceJoint2D>();
             joint.enabled = false;
-
         }
     }
 
@@ -29,10 +28,10 @@ public class Abilities : PlayerController
         mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         firePoint = new Vector3(rb.transform.position.x, rb.transform.position.y, 0);
 
-        hit = Physics2D.Raycast(firePoint, mousePos - firePoint, distance, layerMask);
-        Debug.DrawRay(firePoint, mousePos - firePoint);
+        hit = Physics2D.Raycast(firePoint, mousePos - firePoint, distance, layerMask.value);
+        Debug.DrawRay(firePoint, mousePos - firePoint, Color.red, 0.2f);
         Debug.Log(hit.collider);
-        Debug.Log(Input.GetAxis("Vertical"));
+        Debug.Log(layerMask);
 
         if (joint.distance > 0.5f && Input.GetAxis("Vertical") != 0)
         {

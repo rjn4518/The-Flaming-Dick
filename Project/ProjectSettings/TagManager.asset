@@ -22,8 +22,8 @@ TagManager:
   - 
   - Platform
   - Hook
-  - 
-  - 
+  - Mountain
+  - Sky
   - 
   - 
   - 
@@ -44,6 +44,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 2401851137
+    locked: 0
+  - name: Mountain
+    uniqueID: 3451441389
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
