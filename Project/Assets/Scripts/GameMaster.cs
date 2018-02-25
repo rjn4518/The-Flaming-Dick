@@ -12,6 +12,7 @@ public class GameMaster : MonoBehaviour {
 
     public GameObject player;
     public GameObject playerPrefab;
+    public GameObject playerSprite;
     public static GameObject spawnPoint;
 
     public float maxHealth = 100f;
@@ -37,13 +38,23 @@ public class GameMaster : MonoBehaviour {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
         }
 
+        if (playerSprite == null)
+        {
+            playerSprite = player.GetComponentInChildren<GameObject>();
+        }
+
         currentHealth = maxHealth;
     }
 
     void Update()
     {
         GrapplingHook();
-        Death();
+        FallDeath();
+
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
     }
 
     protected virtual void GrapplingHook()
@@ -56,16 +67,19 @@ public class GameMaster : MonoBehaviour {
       // Deined in Seal Lion script
     }
 
+    protected virtual void FallDeath()
+    {
+
+    }
+
     void Death()
     {
         // Kills player and spawns a new one
 
-        if (currentHealth <= 0)
-        {
             Destroy(player);
             StartCoroutine(Respawn());
             currentHealth = maxHealth;
-        }
+            Debug.Log("Kill that bitch");
     }
 
     IEnumerator Respawn()

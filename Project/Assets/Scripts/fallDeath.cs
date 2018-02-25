@@ -4,26 +4,20 @@ using UnityEngine;
 
 // THIS SCRIPT DOESN'T WORK!!! :DDDDD
 
-public class fallDeath : MonoBehaviour
-{
-	// Your variables from GameMaster for the player
-	public GameObject player;
-	public GameObject playerPrefab;
-	public static GameObject spawnPoint;
+public class fallDeath : GameMaster
+{ 
+    public float maxFallDist = 50f;
 
-	// Detects "Idle," respawns
-	void OnCollisionEnter2D (Collision other)
-	{
-		if (other.gameObject.name == "Idle")
-		{
-			Respawn ();
-		}
-	}
+    // Detects "Idle," respawns
 
-	// Respawn function
-	IEnumerator Respawn ()
-	{
-		yield return new WaitForSeconds(2f);
-		player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
-	}
+        // I tried to fix this but I might've just made it worse :'((((
+
+    protected override void FallDeath()
+    {
+        if (playerSprite.transform.position.y == -maxFallDist)
+        {
+            currentHealth -= 100f;
+            Debug.Log(currentHealth);
+        }
+    }
 }
