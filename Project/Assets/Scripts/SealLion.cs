@@ -8,7 +8,7 @@ public class SealLion : GameMaster
     {
         if (other.name == "Idle")
         {
-            currentHealth -= 100f;
+            currentHealth -= 100f;  // If you run into this shit, you die
             Debug.Log(currentHealth);
         }
     }

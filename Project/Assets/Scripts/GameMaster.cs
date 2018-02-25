@@ -1,5 +1,6 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------
- * 
+ * This script is the only script that inherits directly from MonoBehavior.
+ * All other scripts inherit from this script.
  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
-    public static GameMaster gm;
+    public static GameMaster gm;  // Creates instance of GameMaster
 
     public GameObject player;
     public GameObject playerPrefab;
@@ -19,6 +20,8 @@ public class GameMaster : MonoBehaviour {
 
     private void Awake()
     {
+        // If any of these are null, go find that shit
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -45,16 +48,18 @@ public class GameMaster : MonoBehaviour {
 
     protected virtual void GrapplingHook()
     {
-
+        // Defined in Abilities script
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-      
+      // Deined in Seal Lion script
     }
 
     void Death()
     {
+        // Kills player and spawns a new one
+
         if (currentHealth <= 0)
         {
             Destroy(player);
@@ -65,6 +70,8 @@ public class GameMaster : MonoBehaviour {
 
     IEnumerator Respawn()
     {
+        // Waits 2 seconds and then spawns new player
+
         yield return new WaitForSeconds(2f);
 
         player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);

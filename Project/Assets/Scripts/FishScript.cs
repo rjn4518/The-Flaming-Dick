@@ -8,10 +8,10 @@ public class FishScript : GameMaster
 
 	protected override void OnTriggerEnter2D (Collider2D other)
 	{
-
+        // Destroys the fish when you run into it
 		if (other.name =="Idle")
 		{
-			//other.GetComponent<playerControllerRedo>().points++;
+			//other.GetComponent<playerControllerRedo>().points++;  <-- We can add a points system later
 			Destroy (gameObject);
 		}
 	}

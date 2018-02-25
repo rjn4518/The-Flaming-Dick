@@ -61,7 +61,7 @@ public class CustomPhysics : GameMaster
         //if(onIce && grounded)
         {
             Vector2 adjustedGravity = new Vector2(-Mathf.Sin(rotationAngle * Mathf.Deg2Rad), 
-            -Mathf.Cos(rotationAngle * Mathf.Deg2Rad)) * Physics2D.gravity.magnitude * gravityModifier;
+            -Mathf.Cos(rotationAngle * Mathf.Deg2Rad)) * Physics2D.gravity.magnitude * gravityModifier;  // Makes ice hills slippery
 
             velocity += adjustedGravity * Time.deltaTime;
 
@@ -98,7 +98,7 @@ public class CustomPhysics : GameMaster
 
         if (distance > minMoveDistance)
         {
-            int count = rb.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+            int count = rb.Cast(move, contactFilter, hitBuffer, distance + shellRadius);  // Casts object's rigidbody in front of it and returns amount of collisions
 
             hitBufferList.Clear();
 
@@ -106,7 +106,7 @@ public class CustomPhysics : GameMaster
             {
                 hitBufferList.Add(hitBuffer[i]);
 
-                if (hitBufferList[i].collider.CompareTag("Ice"))
+                if (hitBufferList[i].collider.CompareTag("Ice"))  // Check if any the hits are ice
                 {
                     onIce = true;
                     Debug.Log("You're on ice bitch");
@@ -117,51 +117,63 @@ public class CustomPhysics : GameMaster
                 }
             }
 
-            for (int i = 0; i < hitBufferList.Count; i++)
+            for (int i = 0; i < hitBufferList.Count; i++)  // Cycle through all hits
             {
-                if (!hitBufferList[i].collider.isTrigger)
+                if (!hitBufferList[i].collider.isTrigger)  // If the hits isn't a trigger
                 {
                     Vector2 currentNormal = hitBufferList[i].normal;
 
-                    if (currentNormal.y > minGroundNormalY)
+                    if (currentNormal.y > minGroundNormalY)  // If the slope of the ground isn't too steep
                     {
                         grounded = true;
 
                         if (yMovement)
                         {
-                            groundNormal = currentNormal;
+                            groundNormal = currentNormal;  // Allows object to move on hills... i think lol 
                             currentNormal.x = 0;
                         }
                     }
 
                     float projection = Vector2.Dot(velocity, currentNormal);
 
-                    if (projection < 0)
-                        velocity = velocity - projection * currentNormal;
+                    if (projection < 0)  // Fuck if I know lol
+                        velocity = velocity - projection * currentNormal;  // Think I copied this from somewhere
 
-                    float modifiedDistance = hitBufferList[i].distance - shellRadius;
-                    distance = modifiedDistance < distance ? modifiedDistance : distance;
+                    float modifiedDistance = hitBufferList[i].distance - shellRadius;  // Reduced the target distance if there is a collider is the object path
+                    distance = modifiedDistance < distance ? modifiedDistance : distance;  // Makes sure object's collider doesn't end up inside another collider
                 }
 
             }
         }
 
-        rb.position = rb.position + move.normalized * distance;
+        rb.position = rb.position + move.normalized * distance;  // Sets new object position
     }
 
     float Rotation()  // Rotates the object in the direction ground's normal vector
     {
         float rotationAngle;
-
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------
+         * Math Lesson:
+         * 
+         * X . Y = |X||Y|cos(theta)  --> theta = cos^(-1)((X.Y)/(|X||Y|))
+         * Since X and Y are unit vectors, |X||Y| = 1
+         * theta = cos^(-1)(X.Y)
+         * 
+         * In Words:
+         * The angle between the player's rotation and the vector normal to the ground is given by the inverse cosine of the dot product of those vectors, so what we
+         * want to do is rotate the player by that angle.
+         * And that is what is done below
+         * 
+         -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         if (Vector2.Dot(Vector2.right, groundNormal) < 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 180 &&
-            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 105)
+            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 105)  // Math...
         {
-            rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg;
+            rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg;  // Math...
         }
         else if (Vector2.Dot(Vector2.right, groundNormal) > 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 75 &&
-            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 0)
+            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 0)  // Math...
         {
-            rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg - 90;
+            rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg - 90; // Math...
         }
         else
         {
