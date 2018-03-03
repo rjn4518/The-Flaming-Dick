@@ -23,11 +23,6 @@ public class GameMaster : MonoBehaviour {
     {
         // If any of these are null, go find that shit
 
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-
         if (spawnPoint == null)
         {
             spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
@@ -38,22 +33,29 @@ public class GameMaster : MonoBehaviour {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
         }
 
-        if (playerSprite == null)
-        {
-            playerSprite = player.GetComponentInChildren<GameObject>();
-        }
 
         currentHealth = maxHealth;
+        Debug.Log(currentHealth);
     }
 
     void Update()
     {
         GrapplingHook();
-        FallDeath();
+        Fall();
 
         if (currentHealth <= 0)
         {
             Death();
+        }
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (playerSprite == null)
+        {
+            playerSprite = player.GetComponentInChildren<GameObject>();
         }
     }
 
@@ -67,7 +69,7 @@ public class GameMaster : MonoBehaviour {
       // Deined in Seal Lion script
     }
 
-    protected virtual void FallDeath()
+    protected virtual void Fall()
     {
 
     }
@@ -77,6 +79,7 @@ public class GameMaster : MonoBehaviour {
         // Kills player and spawns a new one
 
             Destroy(player);
+            Debug.Log(player); 
             StartCoroutine(Respawn());
             currentHealth = maxHealth;
             Debug.Log("Kill that bitch");

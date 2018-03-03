@@ -4,15 +4,15 @@ using UnityEngine;
 
 // THIS SCRIPT DOESN'T WORK!!! :DDDDD
 
-public class fallDeath : GameMaster
+public class FallDeath : GameMaster
 { 
     public float maxFallDist = 50f;
 
     // Detects "Idle," respawns
 
-        // I tried to fix this but I might've just made it worse :'((((
+    // I tried to fix this but I might've just made it worse :'((((
 
-    protected override void FallDeath()
+    protected override void Fall()
     {
         if (playerSprite.transform.position.y == -maxFallDist)
         {
