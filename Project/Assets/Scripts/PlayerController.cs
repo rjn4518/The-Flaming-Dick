@@ -13,6 +13,8 @@ public class PlayerController : CustomPhysics
     public float jumpSpeed = 7;  // Player's jumping speed
     public float doubleJumpSpeed = 5;  // Player's double jump speed
     public float horizontalForce = 10f;  // Force applied to player moving on ice
+    public DistanceJoint2D joint;
+    public float step = 0.02f;
 
     private bool doubleJump;  // Can the player double jump?
 
@@ -23,6 +25,12 @@ public class PlayerController : CustomPhysics
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get player's sprite renderer
         animator = GetComponent<Animator>();  // Get player's animator
+
+        if (joint == null)
+        {
+            joint = GetComponent<DistanceJoint2D>();
+            joint.enabled = false;
+        }
     }
 
     protected override void ComputeVelocity()
@@ -32,6 +40,11 @@ public class PlayerController : CustomPhysics
         if (Input.GetMouseButtonDown(0))  // Left click to use grappling hook
         {
             GrapplingHook();
+        }
+
+        if (joint.distance > 0.5f && Input.GetAxis("Vertical") != 0)
+        {
+            joint.distance -= step * Input.GetAxis("Vertical");
         }
 
         Vector2 move = Vector2.zero;

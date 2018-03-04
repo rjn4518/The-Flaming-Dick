@@ -14,7 +14,7 @@ public class FallDeath : GameMaster
 
     protected override void Fall()
     {
-        if (playerSprite.transform.position.y == -maxFallDist)
+        if (playerSprite.transform.position.y <= -maxFallDist)
         {
             currentHealth -= 100f;
             Debug.Log(currentHealth);

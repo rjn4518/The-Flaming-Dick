@@ -9,7 +9,6 @@ public class IceStalactiteScript : GameMaster
 		if (other.name == "Idle")
 		{
 			currentHealth -= 20f;
-			Debug.Log(currentHealth);
 		}
 	}
 }

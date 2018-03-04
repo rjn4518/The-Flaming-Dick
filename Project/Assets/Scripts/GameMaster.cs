@@ -35,19 +35,10 @@ public class GameMaster : MonoBehaviour {
 
 
         currentHealth = maxHealth;
-        Debug.Log(currentHealth);
     }
 
     void Update()
     {
-        GrapplingHook();
-        Fall();
-
-        if (currentHealth <= 0)
-        {
-            Death();
-        }
-
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -55,7 +46,14 @@ public class GameMaster : MonoBehaviour {
 
         if (playerSprite == null)
         {
-            playerSprite = player.GetComponentInChildren<GameObject>();
+            playerSprite = GameObject.FindGameObjectWithTag("PlayerSprite");
+        }
+
+        Fall();
+
+        if (currentHealth <= 0)
+        {
+            Death();
         }
     }
 
