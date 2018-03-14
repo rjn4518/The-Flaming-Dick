@@ -17,12 +17,12 @@ public class PlayerController : CustomPhysics
     private bool doubleJump;  // Can the player double jump?
 
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    private Animator anim;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get player's sprite renderer
-        animator = GetComponent<Animator>();  // Get player's animator
+		anim = GetComponent<Animator>();  // Get player's animator
     }
 
     protected override void ComputeVelocity()
@@ -38,23 +38,37 @@ public class PlayerController : CustomPhysics
 
         move.x = Input.GetAxis("Horizontal");  // = 1 if moving right, = -1 if moving left
 
-        if (Input.GetButtonDown("Jump") && grounded)  // If pressing spacebar and grounded, jump
-        {
-            velocity.y = jumpSpeed;
-            doubleJump = false;
-        }
-        else if (Input.GetButtonDown("Jump") && !doubleJump)  // If player hasn't already double jumped
-        {
-            velocity.y += doubleJumpSpeed;  // Add double jump speed to velocity
-            doubleJump = true;
-        }
-        else if (Input.GetButtonUp("Jump"))  // When spacebar is released, reduce y velocity so player falls faster
-        {
-            if (velocity.y > 0)
-            {
-                velocity.y = velocity.y / 2;
-            }
-        }
+		if (Input.GetButtonDown ("Jump") && grounded) {  // If pressing spacebar and grounded, jump
+			velocity.y = jumpSpeed;
+			doubleJump = false;
+		} else if (Input.GetButtonDown ("Jump") && !doubleJump) {  // If player hasn't already double jumped
+			velocity.y += doubleJumpSpeed;  // Add double jump speed to velocity
+			doubleJump = true;
+		} else if (Input.GetButtonUp ("Jump")) {  // When spacebar is released, reduce y velocity so player falls faster
+			if (velocity.y > 0) {
+				velocity.y = velocity.y / 2;
+			}
+		}
+
+		// ANIMATIONS
+		// Jumping
+		if (grounded) {
+			anim.SetBool ("isJumping", false);
+		} else {
+			anim.SetBool ("isJumping", true);
+		}
+		// Walking Right
+		if (move.x > 0) {
+			anim.SetBool ("walkRight", true);
+		} else {
+			anim.SetBool ("walkRight", false);
+		}
+		// Walk Left
+		if (move.x < 0) {
+			anim.SetBool ("walkLeft", true);
+		} else {
+			anim.SetBool ("WalkLeft", false);
+		}
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < -0.01f));  // Flip sprite in direrction of motion
 
