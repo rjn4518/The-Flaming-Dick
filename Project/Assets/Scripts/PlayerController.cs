@@ -27,7 +27,7 @@ public class PlayerController : CustomPhysics
 
 		anim = GetComponent<Animator>();  // Get player's animator
 
-        animator = GetComponent<Animator>();  // Get player's animator
+        //animator = GetComponent<Animator>();  // Get player's animator
 
         if (joint == null)
         {
