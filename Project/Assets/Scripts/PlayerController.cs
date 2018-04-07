@@ -24,18 +24,17 @@ public class PlayerController : CustomPhysics
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get player's sprite renderer
-<<<<<<< HEAD
+
 		anim = GetComponent<Animator>();  // Get player's animator
-=======
-        animator = GetComponent<Animator>();  // Get player's animator
+
+        //animator = GetComponent<Animator>();  // Get player's animator
 
         if (joint == null)
         {
             joint = GetComponent<DistanceJoint2D>();
             joint.enabled = false;
         }
->>>>>>> 49eed2acc04b2dfc11270c5e4bb3cfed7cc480ae
-    }
+   }
 
     protected override void ComputeVelocity()
     {
