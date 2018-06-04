@@ -114,14 +114,14 @@ public class CustomPhysics : GameMaster
                 if (hitBufferList[i].collider.CompareTag("Ice"))  // Check if any the hits are ice
                 {
                     onIce = true;
-                    Debug.Log("You're on ice bitch");
+                    //Debug.Log("You're on ice bitch");
                 }
                 else
                 {
                     onIce = false;
                 }
             }
-            Debug.Log(count);
+            //Debug.Log(count);
             // Only executes once per frame... why???
             // ^Because hitBufferList.Count = 0 sometimes when moving
             for (int i = 0; i < hitBufferList.Count; i++)  // Cycle through all hits
