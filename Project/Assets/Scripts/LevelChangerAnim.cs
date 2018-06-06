@@ -15,15 +15,14 @@ public class LevelChangerAnim : LevelChangerTrigger
         transition = false;
     }
 
-    public override void FadeToLevel(int levelIndex)
+    public override void FadeToLevel()
     {
-        levelToLoad = levelIndex;
-        Debug.Log(levelToLoad);
         animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad);
+        Debug.Log(levelToLoad);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

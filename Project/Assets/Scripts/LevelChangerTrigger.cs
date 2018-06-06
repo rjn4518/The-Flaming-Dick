@@ -9,11 +9,11 @@ public class LevelChangerTrigger : MonoBehaviour
     {
         if (other.tag == "PlayerSprite")
         {
-            FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            FadeToLevel();
         }
     }
 
-    public virtual void FadeToLevel(int levelIndex)
+    public virtual void FadeToLevel()
     {
 
     }
