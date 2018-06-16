@@ -190,7 +190,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  distance: 10
+  distance: 5
 --- !u!212 &212759661238294290
 SpriteRenderer:
   m_ObjectHideFlags: 1

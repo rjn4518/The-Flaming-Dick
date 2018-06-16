@@ -64,7 +64,7 @@ public class GameMaster : MonoBehaviour {
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-      // Defined in Seal Lion script
+        // Defined in Seal Lion script
     }
 
     protected virtual void Fall()
