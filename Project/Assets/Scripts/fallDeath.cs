@@ -10,8 +10,6 @@ public class FallDeath : GameMaster
 
     // Detects "Idle," respawns
 
-    // I tried to fix this but I might've just made it worse :'((((
-
     protected override void Fall()
     {
         if (playerSprite.transform.position.y <= -maxFallDist)

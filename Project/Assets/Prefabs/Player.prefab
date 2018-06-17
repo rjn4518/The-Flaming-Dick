@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 50795179521992904}
   - component: {fileID: 58601341244630736}
   - component: {fileID: 232601631906323802}
-  - component: {fileID: 114158054202358088}
+  - component: {fileID: 95738727042160316}
+  - component: {fileID: 114473714371907606}
   m_Layer: 8
   m_Name: Idle
   m_TagString: PlayerSprite
@@ -68,8 +69,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380864959740142}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.7, y: 3.65, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4529831509475650}
@@ -127,7 +128,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114158054202358088
+--- !u!95 &95738727042160316
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380864959740142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 121ef2b811ef04f15b1ced3af3edd0bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114473714371907606
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -140,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1726895489141628}
   playerPrefab: {fileID: 1726895489141628}
+  playerSprite: {fileID: 1380864959740142}
   maxHealth: 100
   currentHealth: 0
   maxFallDist: 50
@@ -156,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1726895489141628}
   playerPrefab: {fileID: 1726895489141628}
+  playerSprite: {fileID: 1380864959740142}
   maxHealth: 100
   currentHealth: 0
   minGroundNormalY: 0.65
@@ -165,12 +185,12 @@ MonoBehaviour:
   jumpSpeed: 8
   doubleJumpSpeed: 6
   horizontalForce: 10
+  joint: {fileID: 0}
+  step: 0.02
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  distance: 10
-  step: 0.02
-  joint: {fileID: 0}
+  distance: 5
 --- !u!212 &212759661238294290
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -229,7 +249,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -9.180078, y: 3.6314344}
+  m_ConnectedAnchor: {x: 167.00485, y: 98.038574}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.52025366
+  m_Distance: 206.58798
   m_MaxDistanceOnly: 1

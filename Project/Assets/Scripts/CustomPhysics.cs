@@ -24,6 +24,7 @@ public class CustomPhysics : GameMaster
     protected ContactFilter2D contactFilter;  // Determines which layers the object can collide with
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];  // Array to store all collidable things in front of the object
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);  // List of all things the object is colliding with or will collide with next frame
+    protected bool y_Movement;
 
     protected const float minMoveDistance = 0.001f;  // Minimum distance the object can move
     protected const float shellRadius = 0.01f;  // Specifies a small buffer distance between objects so they don't end up inside each other
@@ -83,11 +84,15 @@ public class CustomPhysics : GameMaster
 
         transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);  // Sets rotation of the object
 
-        Movement(move, false);  // Calculates horizontal movement of the object
+        y_Movement = false;
+
+        Movement(move, y_Movement);  // Calculates horizontal movement of the object
 
         move = Vector2.up * deltaPosition.y;
 
-        Movement(move, true);  // Calculates vertical movement of the object
+        y_Movement = true;
+
+        Movement(move, y_Movement);  // Calculates vertical movement of the object
 
         transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
     }
@@ -109,17 +114,21 @@ public class CustomPhysics : GameMaster
                 if (hitBufferList[i].collider.CompareTag("Ice"))  // Check if any the hits are ice
                 {
                     onIce = true;
-                    Debug.Log("You're on ice bitch");
+                    //Debug.Log("You're on ice bitch");
                 }
                 else
                 {
                     onIce = false;
                 }
             }
-
+            //Debug.Log(count);
+            // Only executes once per frame... why???
+            // ^Because hitBufferList.Count = 0 sometimes when moving
             for (int i = 0; i < hitBufferList.Count; i++)  // Cycle through all hits
             {
-                if (!hitBufferList[i].collider.isTrigger)  // If the hits isn't a trigger
+                //Debug.Log(yMovement);
+
+                if (!hitBufferList[i].collider.isTrigger)  // If the hit isn't a trigger
                 {
                     Vector2 currentNormal = hitBufferList[i].normal;
 
@@ -146,6 +155,8 @@ public class CustomPhysics : GameMaster
             }
         }
 
+        //Debug.Log(yMovement);
+
         rb.position = rb.position + move.normalized * distance;  // Sets new object position
     }
 
@@ -155,15 +166,14 @@ public class CustomPhysics : GameMaster
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------
          * Math Lesson:
          * 
-         * X . Y = |X||Y|cos(theta)  --> theta = cos^(-1)((X.Y)/(|X||Y|))
+         * X . Y = |X||Y|cos(theta)  -->  theta = cos^(-1)((X.Y)/(|X||Y|))
          * Since X and Y are unit vectors, |X||Y| = 1
          * theta = cos^(-1)(X.Y)
          * 
          * In Words:
          * The angle between the player's rotation and the vector normal to the ground is given by the inverse cosine of the dot product of those vectors, so what we
          * want to do is rotate the player by that angle.
-         * And that is what is done below
-         * 
+         * And that is what is done below.
          -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         if (Vector2.Dot(Vector2.right, groundNormal) < 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 180 &&
             Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 105)  // Math...

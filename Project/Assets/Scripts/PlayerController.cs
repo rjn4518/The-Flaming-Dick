@@ -54,14 +54,20 @@ public class PlayerController : CustomPhysics
 
         move.x = Input.GetAxis("Horizontal");  // = 1 if moving right, = -1 if moving left
 
-		if (Input.GetButtonDown ("Jump") && grounded) {  // If pressing spacebar and grounded, jump
+		if (Input.GetButtonDown ("Jump") && grounded) // If pressing spacebar and grounded, jump
+        {  
 			velocity.y = jumpSpeed;
 			doubleJump = false;
-		} else if (Input.GetButtonDown ("Jump") && !doubleJump) {  // If player hasn't already double jumped
+		}
+        else if (Input.GetButtonDown ("Jump") && !doubleJump) // If player hasn't already double jumped
+        {  
 			velocity.y += doubleJumpSpeed;  // Add double jump speed to velocity
 			doubleJump = true;
-		} else if (Input.GetButtonUp ("Jump")) {  // When spacebar is released, reduce y velocity so player falls faster
-			if (velocity.y > 0) {
+		}
+        else if (Input.GetButtonUp ("Jump")) // When spacebar is released, reduce y velocity so player falls faster
+        {  
+			if (velocity.y > 0)
+            {
 				velocity.y = velocity.y / 2;
 			}
 		}
@@ -83,7 +89,7 @@ public class PlayerController : CustomPhysics
 		if (move.x < 0) {
 			anim.SetBool ("walkLeft", true);
 		} else {
-			anim.SetBool ("WalkLeft", false);
+			anim.SetBool ("walkLeft", false);
 		}
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < -0.01f));  // Flip sprite in direrction of motion
@@ -99,9 +105,9 @@ public class PlayerController : CustomPhysics
         if (onIce && grounded)
         {
             float force = move.x * horizontalForce;
-            Debug.Log("MOVING ON ICE MOTHERFUCKER");
+            //Debug.Log("MOVING ON ICE MOTHERFUCKER");
             targetVelocity += new Vector2((force/rb.mass) * Time.deltaTime, velocity.y);  // Converts force to velocity and adds it to current velocity (f=m(v/t))
-            Debug.Log(targetVelocity);
+            //Debug.Log(targetVelocity);
         }
         else
         {

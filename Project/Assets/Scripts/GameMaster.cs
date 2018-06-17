@@ -64,7 +64,7 @@ public class GameMaster : MonoBehaviour {
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-      // Defined in Seal Lion script
+        // Defined in Seal Lion script
     }
 
     protected virtual void Fall()
@@ -77,7 +77,6 @@ public class GameMaster : MonoBehaviour {
         // Kills player and spawns a new one
 
             Destroy(player);
-            Debug.Log(player); 
             StartCoroutine(Respawn());
             currentHealth = maxHealth;
             Debug.Log("Kill that bitch");
@@ -90,5 +89,6 @@ public class GameMaster : MonoBehaviour {
         yield return new WaitForSeconds(2f);
 
         player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
+        Debug.Log(player);
     }
 }

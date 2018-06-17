@@ -6,6 +6,7 @@ public class Abilities : PlayerController
 {
     public LayerMask layerMask;
     public float distance = 5f;
+    public float minHookDist = 0.5f;
 
     private Vector3 mousePos;
     private Vector3 firePoint;
@@ -17,10 +18,15 @@ public class Abilities : PlayerController
         mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         firePoint = new Vector3(rb.transform.position.x, rb.transform.position.y, 0);
 
-        hit = Physics2D.Raycast(firePoint, mousePos - firePoint, distance, layerMask.value);
+        hit = Physics2D.Raycast(firePoint, mousePos - firePoint, distance, layerMask);
         Debug.DrawRay(firePoint, mousePos - firePoint, Color.red, 0.2f);
+        Debug.Log(mousePos);
         Debug.Log(hit.collider);
-        Debug.Log(layerMask);
+
+        if (joint.distance > minHookDist && joint.enabled)
+        {
+            joint.distance -= step;
+        }
 
         if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
         {
@@ -33,7 +39,8 @@ public class Abilities : PlayerController
 
             joint.anchor = Vector2.zero;
             joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-            joint.connectedAnchor = contactPoint;
+            joint.connectedAnchor = contactPoint - new Vector2 (hit.collider.transform.position.x, hit.collider.transform.position.y);
+            joint.distance = Vector2.Distance(transform.position, hit.point);
         }
 
         if (Input.GetButtonDown("Jump"))
