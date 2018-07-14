@@ -11,8 +11,8 @@ public class MovingCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity.x = 0f;
-        velocity.y = -baseSpeed * Mathf.Exp(-speedMultiplier * transform.position.y);
+        velocity.y = 0f;
+        velocity.x = baseSpeed * Mathf.Exp(speedMultiplier * transform.position.x);
         velocity.z = 0f;
 
         transform.position += velocity * Time.deltaTime;

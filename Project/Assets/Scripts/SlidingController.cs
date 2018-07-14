@@ -6,11 +6,11 @@ public class SlidingController : MonoBehaviour
 {
     public float baseSpeed = 3f;
     public float speedMultiplier = 0.01f;
-    public float horizontalSpeed = 5f;
+    public float verticalSpeed = 5f;
 
     private Rigidbody2D rb;
     private Vector2 velocity;
-    private float xDirection;
+    private float yDirection;
 
     private void Awake()
     {
@@ -22,11 +22,11 @@ public class SlidingController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity.y = -baseSpeed*Mathf.Exp(-speedMultiplier*rb.position.y);
+        velocity.x = baseSpeed*Mathf.Exp(speedMultiplier*rb.position.x);
 
-        xDirection = Input.GetAxis("Horizontal");
+        yDirection = Input.GetAxis("Vertical");
 
-        velocity.x = xDirection * horizontalSpeed;
+        velocity.y = yDirection * verticalSpeed;
 
         rb.position += velocity * Time.deltaTime;
     }
