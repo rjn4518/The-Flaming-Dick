@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 972088102}
   - component: {fileID: 972088101}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 1018869369}
   - component: {fileID: 1018869368}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
