@@ -55,5 +55,6 @@ MonoBehaviour:
   playerPrefab: {fileID: 1726895489141628, guid: 78f48429cbe4bce48b8f2941a64a0550,
     type: 2}
   playerSprite: {fileID: 0}
+  playerTemp: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e, type: 2}
   maxHealth: 100
   currentHealth: 0

@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour {
     public GameObject player;
     public GameObject playerPrefab;
     public GameObject playerSprite;
+    public GameObject playerTemp;
     public static GameObject spawnPoint;
 
     public float maxHealth = 100f;
@@ -77,6 +78,7 @@ public class GameMaster : MonoBehaviour {
         // Kills player and spawns a new one
 
             Destroy(player);
+            player = Instantiate(playerTemp, spawnPoint.transform.position, Quaternion.identity);
             StartCoroutine(Respawn());
             currentHealth = maxHealth;
             Debug.Log("Kill that bitch");
@@ -88,6 +90,7 @@ public class GameMaster : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
 
+        Destroy(player);
         player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
         Debug.Log(player);
     }

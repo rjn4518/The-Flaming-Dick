@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -508,6 +508,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114672107928913048, guid: faf45fdf548f81d4dbf97f1953ba0169,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: faf45fdf548f81d4dbf97f1953ba0169, type: 2}
   m_IsPrefabParent: 0
@@ -717,6 +723,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114481804355544176, guid: b1421535f850ffd44a931d769baae352,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1421535f850ffd44a931d769baae352, type: 2}
   m_IsPrefabParent: 0
@@ -6165,6 +6177,12 @@ Prefab:
       propertyPath: m_Name
       value: ish) Fish (3 fish)
       objectReference: {fileID: 0}
+    - target: {fileID: 114679236618730190, guid: ab325edf5bb940b45bff272732e40b74,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab325edf5bb940b45bff272732e40b74, type: 2}
   m_IsPrefabParent: 0
@@ -6212,6 +6230,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114473714371907606, guid: 78f48429cbe4bce48b8f2941a64a0550,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78f48429cbe4bce48b8f2941a64a0550, type: 2}
   m_IsPrefabParent: 0
@@ -6489,6 +6513,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114827102866227460, guid: 6b0a8708cba91d840a6d5416be7b2f2a,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b0a8708cba91d840a6d5416be7b2f2a, type: 2}
   m_IsPrefabParent: 0
@@ -6686,6 +6716,12 @@ Prefab:
       propertyPath: m_Name
       value: SealLion_normal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114672107928913048, guid: faf45fdf548f81d4dbf97f1953ba0169,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: faf45fdf548f81d4dbf97f1953ba0169, type: 2}
   m_IsPrefabParent: 0
@@ -6921,6 +6957,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114369597540128898, guid: 4243d0595074ecd4d95ce34c55f5af8f,
+        type: 2}
+      propertyPath: playerTemp
+      value: 
+      objectReference: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4243d0595074ecd4d95ce34c55f5af8f, type: 2}
   m_IsPrefabParent: 0
