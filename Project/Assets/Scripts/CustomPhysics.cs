@@ -15,9 +15,15 @@ public class CustomPhysics : GameMaster
     public float minGroundNormalY = 0.65f;  // Determines the steepest slope an object can stand on
     public float gravityModifier = 1f;  // Allows for more or less gravity
 
+    [SerializeField]
+    private LayerMask whatIsGround;
+    [SerializeField]
+    private Transform ceilingCheck;
+
     protected Vector2 targetVelocity;  // Target velocity of the object
     protected bool grounded;  // Determines whether or not object is grounded
     protected bool onIce = false;
+    protected bool ceiling = false;
     protected Vector2 groundNormal;  // Stores the unit vector perpendicular to ground
     protected Rigidbody2D rb;  // Reference to the object's rigidbody
     protected Vector2 velocity;  // Object's current velocity
@@ -28,6 +34,7 @@ public class CustomPhysics : GameMaster
 
     protected const float minMoveDistance = 0.001f;  // Minimum distance the object can move
     protected const float shellRadius = 0.01f;  // Specifies a small buffer distance between objects so they don't end up inside each other
+    protected const float ceilingRadius = 0.2f;
 
     private void OnEnable()
     {
@@ -57,6 +64,15 @@ public class CustomPhysics : GameMaster
     private void FixedUpdate()
     {
         float rotationAngle = Rotation();
+
+        if (Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround))
+        {
+            ceiling = true;
+        }
+        else
+        {
+            ceiling = false;
+        }
 
         if (onIce && rotationAngle != 0)
         //if(onIce && grounded)
@@ -145,8 +161,8 @@ public class CustomPhysics : GameMaster
 
                     float projection = Vector2.Dot(velocity, currentNormal);
 
-                    if (projection < 0)  // Fuck if I know lol
-                        velocity = velocity - projection * currentNormal;  // Think I copied this from somewhere
+                    //if (projection < 0)  // Fuck if I know lol
+                      //  velocity = velocity - projection * currentNormal;  // Think I copied this from somewhere
 
                     float modifiedDistance = hitBufferList[i].distance - shellRadius;  // Reduced the target distance if there is a collider is the object path
                     distance = modifiedDistance < distance ? modifiedDistance : distance;  // Makes sure object's collider doesn't end up inside another collider
@@ -176,11 +192,11 @@ public class CustomPhysics : GameMaster
          * And that is what is done below.
          -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         if (Vector2.Dot(Vector2.right, groundNormal) < 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 180 &&
-            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 105)  // Math...
+            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 130)  // Math...
         {
             rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg;  // Math...
         }
-        else if (Vector2.Dot(Vector2.right, groundNormal) > 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 75 &&
+        else if (Vector2.Dot(Vector2.right, groundNormal) > 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 50 &&
             Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 0)  // Math...
         {
             rotationAngle = Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg - 90; // Math...

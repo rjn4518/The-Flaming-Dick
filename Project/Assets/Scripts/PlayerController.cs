@@ -8,6 +8,11 @@ using UnityEngine;
 
 public class PlayerController : CustomPhysics
 {
+    [SerializeField]
+    private Collider2D idleCollider;
+    [SerializeField]
+    private Collider2D slidingCollider;
+
     public float maxSpeed = 7;      // Player's walking speed
     public float slideSpeed = 10;  // Player's sliding speed
     public float jumpSpeed = 7;  // Player's jumping speed
@@ -17,6 +22,7 @@ public class PlayerController : CustomPhysics
     public float step = 0.02f;
 
     private bool doubleJump;  // Can the player double jump?
+    private bool sliding = false;
 
     private SpriteRenderer spriteRenderer;
     private Animator anim;
@@ -34,6 +40,9 @@ public class PlayerController : CustomPhysics
             joint = GetComponent<DistanceJoint2D>();
             joint.enabled = false;
         }
+
+        idleCollider.enabled = true;
+        slidingCollider.enabled = false;
    }
 
     protected override void ComputeVelocity()
@@ -113,12 +122,47 @@ public class PlayerController : CustomPhysics
         {
             if (Input.GetKey(KeyCode.X))
             {
-                targetVelocity = move * slideSpeed;  // If pressing X, set velocity to sliding speed
+                sliding = true;  // If pressing X, set velocity to sliding speed
             }
             else
             {
-                targetVelocity = move * maxSpeed;  // If not pressing X, set velocity to walking speed
+                sliding = false;  // If not pressing X, set velocity to walking speed
             }
+
+            Slide(sliding, ceiling, move);
+        }
+    }
+
+    private void Slide(bool _sliding, bool ceiling, Vector2 _move)
+    {
+        Debug.Log(ceiling);
+        if(!_sliding)
+        {
+            if(ceiling)
+            {
+                _sliding = true;
+            }
+        }
+
+        if(_sliding)
+        {
+            if(idleCollider != null && slidingCollider!= null)
+            {
+                idleCollider.enabled = false;
+                slidingCollider.enabled = true;
+            }
+
+            targetVelocity = _move * slideSpeed;
+        }
+        else
+        {
+            if(idleCollider != null && slidingCollider != null)
+            {
+                idleCollider.enabled = true;
+                slidingCollider.enabled = false;
+            }
+
+            targetVelocity = _move * maxSpeed;
         }
     }
 }
