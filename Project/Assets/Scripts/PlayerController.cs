@@ -135,7 +135,6 @@ public class PlayerController : CustomPhysics
 
     private void Slide(bool _sliding, bool ceiling, Vector2 _move)
     {
-        Debug.Log(ceiling);
         if(!_sliding)
         {
             if(ceiling)
