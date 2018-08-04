@@ -20,13 +20,7 @@ public class Abilities : PlayerController
 
         hit = Physics2D.Raycast(firePoint, mousePos - firePoint, distance, layerMask);
         Debug.DrawRay(firePoint, mousePos - firePoint, Color.red, 0.2f);
-        Debug.Log(mousePos);
         Debug.Log(hit.collider);
-
-        if (joint.distance > minHookDist && joint.enabled)
-        {
-            joint.distance -= step;
-        }
 
         if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
         {
@@ -37,15 +31,10 @@ public class Abilities : PlayerController
             contactPoint.y = contactPoint.y / hit.collider.transform.localScale.y;
             Debug.Log(hit.point);
 
-            joint.anchor = Vector2.zero;
+            joint.anchor = (Vector2)player.transform.position;
             joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-            joint.connectedAnchor = contactPoint - new Vector2 (hit.collider.transform.position.x, hit.collider.transform.position.y);
+            joint.connectedAnchor = contactPoint - (Vector2)player.transform.position;
             joint.distance = Vector2.Distance(transform.position, hit.point);
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            joint.enabled = false;
         }
     }
 }
