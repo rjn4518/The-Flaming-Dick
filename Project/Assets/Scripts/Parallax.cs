@@ -28,7 +28,7 @@ public class Parallax : MonoBehaviour
 
         leftIndex = 0;
         rightIndex = layers.Length - 1;
-	}
+   	}
 	
 	// Update is called once per frame
 	void Update ()
