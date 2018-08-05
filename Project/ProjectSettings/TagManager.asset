@@ -12,6 +12,12 @@ TagManager:
   - Hook
   - PlayerSprite
   - EndLevel
+  - Red
+  - Gold
+  - Bronze
+  - Silver
+  - FishCount
+  - HealthFishImage
   layers:
   - Default
   - TransparentFX

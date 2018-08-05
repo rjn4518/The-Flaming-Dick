@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
 
@@ -15,10 +16,13 @@ public class GameMaster : MonoBehaviour {
     public GameObject playerSprite;
     public GameObject playerTemp;
     public static GameObject spawnPoint;
-
+    public Text fishCount;
+    public Image healthFish;
     public float maxHealth = 100f;
     [HideInInspector]
     public float currentHealth;
+    [HideInInspector]
+    public Image[] healthFishArray;
 
     private void Awake()
     {
@@ -32,6 +36,32 @@ public class GameMaster : MonoBehaviour {
         if (gm == null)
         {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
+        }
+
+        if (fishCount == null)
+        {
+            Text[] texts = FindObjectsOfType<Text>();
+
+            for(int i = 0; i < texts.Length; i++)
+            {
+                if(texts[i].tag == "FishCount")
+                {
+                    fishCount = texts[i];
+                }
+            }
+        }
+
+        if (healthFish == null)
+        {
+            Image[] images = FindObjectsOfType<Image>();
+
+            for(int i = 0; i < images.Length; i++)
+            {
+                if(images[i].tag == "HealthFishImage")
+                {
+                    healthFish = images[i];
+                }
+            }
         }
 
 
