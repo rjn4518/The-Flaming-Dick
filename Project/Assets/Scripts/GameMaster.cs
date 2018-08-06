@@ -16,13 +16,16 @@ public class GameMaster : MonoBehaviour {
     public GameObject playerSprite;
     public GameObject playerTemp;
     public static GameObject spawnPoint;
-    public Text fishCount;
+    public Text fishCountText;
     public Image healthFish;
     public float maxHealth = 100f;
+
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
     public Image[] healthFishArray;
+    [HideInInspector]
+    public int fishCount;
 
     private void Awake()
     {
@@ -38,7 +41,7 @@ public class GameMaster : MonoBehaviour {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
         }
 
-        if (fishCount == null)
+        if (fishCountText == null)
         {
             Text[] texts = FindObjectsOfType<Text>();
 
@@ -46,7 +49,7 @@ public class GameMaster : MonoBehaviour {
             {
                 if(texts[i].tag == "FishCount")
                 {
-                    fishCount = texts[i];
+                    fishCountText = texts[i];
                 }
             }
         }
@@ -63,8 +66,6 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
-
-
         currentHealth = maxHealth;
     }
 

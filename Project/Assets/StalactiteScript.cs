@@ -14,7 +14,7 @@ public class StalactiteScript : GameMaster
     private float delay = 0.5f;
 
     [SerializeField]
-    private float damage = 10f;
+    private float damage = 25f;
 
     private Rigidbody2D rb;
 
@@ -43,7 +43,7 @@ public class StalactiteScript : GameMaster
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHealth -= damage;
-        Debug.Log(currentHealth);
+        gm.currentHealth -= damage;
+        Debug.Log(gm.currentHealth);
     }
 }

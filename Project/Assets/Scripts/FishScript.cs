@@ -9,7 +9,7 @@ public class FishScript : GameMaster
 	protected override void OnTriggerEnter2D (Collider2D other)
 	{
         // Destroys the fish when you run into it
-		if (other.name == "Player Sprite")
+		if(other.name == "Player Sprite")
 		{
 			//other.GetComponent<playerControllerRedo>().points++;  <-- We can add a points system later
 			Destroy(gameObject);
@@ -17,24 +17,33 @@ public class FishScript : GameMaster
             switch(tag)
             {
                 case "Bronze":
-                    // +1
+                    gm.fishCount++;
                     break;
 
                 case "Silver":
-                    // +2
+                    gm.fishCount += 2;
                     break;
 
                 case "Gold":
-                    // +5
+                    gm.fishCount += 10;
                     break;
 
                 case "Red":
-                    // Restore health
+                    if(gm.currentHealth <= gm.maxHealth - 25)
+                    {
+                        gm.currentHealth += 25;
+                    }
+                    else
+                    {
+                       gm.currentHealth = gm.maxHealth;
+                    }
+                    Debug.Log(gm.currentHealth);
                     break;
 
                 default:
                     break;
             }
+            gm.fishCountText.text = "X " + gm.fishCount;
 		}
 	}
 }
