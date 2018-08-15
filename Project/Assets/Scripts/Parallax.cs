@@ -52,6 +52,10 @@ public class Parallax : MonoBehaviour
     {
         int lastRight = rightIndex;
         layers[rightIndex].position = Vector3.right * (layers[leftIndex].position.x - backgroundSize);
+        if(layers[rightIndex].tag == "Sky")
+        {
+            layers[rightIndex].localScale.Set(-layers[leftIndex].localScale.x, layers[leftIndex].localScale.y, layers[leftIndex].localScale.z);
+        }
         leftIndex = rightIndex;
         rightIndex--;
 
@@ -65,6 +69,10 @@ public class Parallax : MonoBehaviour
     {
         int lastLeft = leftIndex;
         layers[leftIndex].position = Vector3.right * (layers[rightIndex].position.x + backgroundSize);
+        if(layers[leftIndex].tag == "Sky")
+        {
+            layers[leftIndex].localScale.Set(-layers[rightIndex].localScale.x, layers[rightIndex].localScale.y, layers[rightIndex].localScale.z);
+        }
         rightIndex = leftIndex;
         leftIndex++;
 

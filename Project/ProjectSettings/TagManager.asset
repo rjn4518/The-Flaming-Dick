@@ -18,6 +18,7 @@ TagManager:
   - Silver
   - FishCount
   - HealthFishImage
+  - Sky
   layers:
   - Default
   - TransparentFX
