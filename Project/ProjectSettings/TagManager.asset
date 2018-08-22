@@ -17,8 +17,8 @@ TagManager:
   - Bronze
   - Silver
   - FishCount
-  - HealthFishImage
   - Sky
+  - HealthBar
   layers:
   - Default
   - TransparentFX
