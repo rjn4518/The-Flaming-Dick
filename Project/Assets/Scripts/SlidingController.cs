@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlidingController : MonoBehaviour
+public class SlidingController : GameMaster
 {
     public float baseSpeed = 3f;
     public float speedMultiplier = 0.01f;
@@ -17,6 +17,14 @@ public class SlidingController : MonoBehaviour
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();  // Gets the rigidbody of the current object
+        }
+    }
+
+    private void Update()
+    {
+        if(gm.playerSprite.transform.position.x - gm.mainCamera.transform.position.x < -30f)
+        {
+            gm.currentHealth -= 1000;
         }
     }
 

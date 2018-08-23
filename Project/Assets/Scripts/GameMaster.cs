@@ -17,9 +17,11 @@ public class GameMaster : MonoBehaviour {
     public GameObject playerTemp;
     public static GameObject spawnPoint;
     public Text fishCountText;
-    public Image healthFish;
+    public Image healthBar;
     public float maxHealth = 100f;
 
+    [HideInInspector]
+    public Camera mainCamera;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
@@ -27,18 +29,33 @@ public class GameMaster : MonoBehaviour {
     [HideInInspector]
     public int fishCount;
 
+    private float defaultWidth;
+
     private void Awake()
     {
         // If any of these are null, go find that shit
 
-        if (spawnPoint == null)
-        {
-            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        }
-
         if (gm == null)
         {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
+        }
+
+        if(mainCamera == null)
+        {
+            Camera[] cameras = FindObjectsOfType<Camera>();
+
+            for(int i = 0; i < cameras.Length; i++)
+            {
+                if(cameras[i].tag == "MainCamera")
+                {
+                    mainCamera = cameras[i];
+                }
+            }
+        }
+
+        if (spawnPoint == null)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         }
 
         if (fishCountText == null)
@@ -53,19 +70,30 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
+<<<<<<< HEAD
         if (healthFish == null)
+=======
+
+        if (healthBar == null)
+>>>>>>> 2f35bd945769ad79f3714927cf2f7fef9e805dc2
         {
             Image[] images = FindObjectsOfType<Image>();
 
             for(int i = 0; i < images.Length; i++)
             {
-                if(images[i].tag == "HealthFishImage")
+                if(images[i].tag == "HealthBar")
                 {
-                    healthFish = images[i];
+                    healthBar = images[i];
                 }
             }
+<<<<<<< HEAD
 
       }
+=======
+        }
+
+        defaultWidth = healthBar.rectTransform.sizeDelta.x;
+>>>>>>> 2f35bd945769ad79f3714927cf2f7fef9e805dc2
         currentHealth = maxHealth;
     }
 
@@ -82,6 +110,8 @@ public class GameMaster : MonoBehaviour {
         }
 
         Fall();
+
+        healthBar.rectTransform.sizeDelta = new Vector2((gm.currentHealth / gm.maxHealth) * defaultWidth, healthBar.rectTransform.sizeDelta.y);
 
         if (currentHealth <= 0)
         {
