@@ -119,7 +119,7 @@ public class PlayerController : CustomPhysics
             }
         }
 
-        if(_sliding)
+        if(_sliding && gm.currentStamina > 0)
         {
             if(idleCollider != null && slidingCollider!= null)
             {
@@ -127,14 +127,24 @@ public class PlayerController : CustomPhysics
                 slidingCollider.enabled = true;
             }
 
+            if (gm.currentStamina > 0)
+            {
+                gm.currentStamina--;
+            }
+
             targetVelocity = _move * slideSpeed;
         }
-        else
+        else if (!_sliding)
         {
             if(idleCollider != null && slidingCollider != null)
             {
                 idleCollider.enabled = true;
                 slidingCollider.enabled = false;
+            }
+
+            if (gm.currentStamina < gm.maxStamina && !Input.GetKey(KeyCode.X))
+            {
+                gm.currentStamina++;
             }
 
             targetVelocity = _move * maxSpeed;

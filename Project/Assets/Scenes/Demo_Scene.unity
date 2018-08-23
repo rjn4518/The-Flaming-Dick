@@ -827,8 +827,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114313519025987474, guid: 850c65b588b6f0943a8f2f1a26c189b7, type: 2}
+    - target: {fileID: 1147718351077260, guid: 850c65b588b6f0943a8f2f1a26c189b7, type: 2}
+      propertyPath: m_TagString
+      value: StaminaBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 850c65b588b6f0943a8f2f1a26c189b7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1538205154

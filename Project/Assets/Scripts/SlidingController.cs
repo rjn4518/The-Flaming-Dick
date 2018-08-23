@@ -22,9 +22,9 @@ public class SlidingController : GameMaster
 
     private void Update()
     {
-        if(gm.playerSprite.transform.position.x - gm.mainCamera.transform.position.x < -30f)
+        if(gm.playerSprite.transform.position.x - gm.mainCamera.transform.position.x < -15f)
         {
-            gm.currentHealth -= 1000;
+            gm.currentHealth -= gm.maxHealth;
         }
     }
 

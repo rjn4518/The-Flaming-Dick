@@ -19,6 +19,7 @@ TagManager:
   - FishCount
   - Sky
   - HealthBar
+  - StaminaBar
   layers:
   - Default
   - TransparentFX

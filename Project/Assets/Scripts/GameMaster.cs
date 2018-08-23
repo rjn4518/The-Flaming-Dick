@@ -16,16 +16,21 @@ public class GameMaster : MonoBehaviour {
     public GameObject playerSprite;
     public GameObject playerTemp;
     public static GameObject spawnPoint;
-    public Text fishCountText;
-    public Image healthBar;
     public float maxHealth = 100f;
+    public float maxStamina = 100f;
 
+    [HideInInspector]
+    public Text fishCountText;
+    [HideInInspector]
+    public Image healthBar;
+    [HideInInspector]
+    public Image staminaBar;
     [HideInInspector]
     public Camera mainCamera;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
-    public Image[] healthFishArray;
+    public float currentStamina;
     [HideInInspector]
     public int fishCount;
 
@@ -40,7 +45,7 @@ public class GameMaster : MonoBehaviour {
            gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMaster>();
         }
 
-        if(mainCamera == null)
+        if (mainCamera == null)
         {
             Camera[] cameras = FindObjectsOfType<Camera>();
 
@@ -85,8 +90,23 @@ public class GameMaster : MonoBehaviour {
 
         }
 
+        if (staminaBar == null)
+        {
+            Image[] images = FindObjectsOfType<Image>();
+
+            for (int i = 0; i < images.Length; i++)
+            {
+                if (images[i].tag == "StaminaBar")
+                {
+                    staminaBar = images[i];
+                }
+            }
+
+        }
+
         defaultWidth = healthBar.rectTransform.sizeDelta.x;
         currentHealth = maxHealth;
+        currentStamina = maxStamina;
     }
 
     void Update()
@@ -104,6 +124,7 @@ public class GameMaster : MonoBehaviour {
         Fall();
 
         healthBar.rectTransform.sizeDelta = new Vector2((gm.currentHealth / gm.maxHealth) * defaultWidth, healthBar.rectTransform.sizeDelta.y);
+        staminaBar.rectTransform.sizeDelta = new Vector2((gm.currentStamina / gm.maxStamina) * defaultWidth, staminaBar.rectTransform.sizeDelta.y);
 
         if (currentHealth <= 0)
         {
