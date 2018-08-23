@@ -70,12 +70,8 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
-<<<<<<< HEAD
-        if (healthFish == null)
-=======
 
         if (healthBar == null)
->>>>>>> 2f35bd945769ad79f3714927cf2f7fef9e805dc2
         {
             Image[] images = FindObjectsOfType<Image>();
 
@@ -86,14 +82,10 @@ public class GameMaster : MonoBehaviour {
                     healthBar = images[i];
                 }
             }
-<<<<<<< HEAD
 
-      }
-=======
         }
 
         defaultWidth = healthBar.rectTransform.sizeDelta.x;
->>>>>>> 2f35bd945769ad79f3714927cf2f7fef9e805dc2
         currentHealth = maxHealth;
     }
 

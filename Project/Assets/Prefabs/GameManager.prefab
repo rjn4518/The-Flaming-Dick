@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4459353174060222}
-  - component: {fileID: 114915446121271032}
+  - component: {fileID: 114325851144449344}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114915446121271032
+--- !u!114 &114325851144449344
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,10 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerPrefab: {fileID: 1726895489141628, guid: 78f48429cbe4bce48b8f2941a64a0550,
-    type: 2}
+  playerPrefab: {fileID: 0}
   playerSprite: {fileID: 0}
   playerTemp: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e, type: 2}
+  fishCountText: {fileID: 0}
+  healthBar: {fileID: 0}
   maxHealth: 100
+  mainCamera: {fileID: 0}
   currentHealth: 0
+  healthFishArray: []
+  fishCount: 0
   maxFallDist: 50
