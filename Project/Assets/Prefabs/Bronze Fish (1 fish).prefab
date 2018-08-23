@@ -83,9 +83,13 @@ MonoBehaviour:
     type: 2}
   playerSprite: {fileID: 0}
   playerTemp: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e, type: 2}
+  fishCountText: {fileID: 0}
+  healthFish: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
-  fishPickUp: {fileID: 0}
+  healthFishArray: []
+  fishCount: 0
+  fishPickUp: {fileID: 8300000, guid: 296220f8fed194feaac3f351729c56d5, type: 3}
 --- !u!212 &212933900043197110
 SpriteRenderer:
   m_ObjectHideFlags: 1

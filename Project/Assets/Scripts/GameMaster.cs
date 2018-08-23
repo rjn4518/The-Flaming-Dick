@@ -53,7 +53,6 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
-
         if (healthFish == null)
         {
             Image[] images = FindObjectsOfType<Image>();
@@ -65,7 +64,8 @@ public class GameMaster : MonoBehaviour {
                     healthFish = images[i];
                 }
             }
-        }
+
+      }
         currentHealth = maxHealth;
     }
 

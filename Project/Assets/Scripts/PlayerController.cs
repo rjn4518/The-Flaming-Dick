@@ -25,14 +25,10 @@ public class PlayerController : CustomPhysics
     private bool sliding = false;
 
     private SpriteRenderer spriteRenderer;
-    private Animator anim;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get player's sprite renderer
-
-		anim = GetComponent<Animator>();  // Get player's animator
-
         //animator = GetComponent<Animator>();  // Get player's animator
 
         if (joint == null)
@@ -79,26 +75,6 @@ public class PlayerController : CustomPhysics
             {
 				velocity.y = velocity.y / 2;
 			}
-		}
-
-		// ANIMATIONS
-		// Jumping
-		if (grounded) {
-			anim.SetBool ("isJumping", false);
-		} else {
-			anim.SetBool ("isJumping", true);
-		}
-		// Walking Right
-		if (move.x > 0) {
-			anim.SetBool ("walkRight", true);
-		} else {
-			anim.SetBool ("walkRight", false);
-		}
-		// Walk Left
-		if (move.x < 0) {
-			anim.SetBool ("walkLeft", true);
-		} else {
-			anim.SetBool ("walkLeft", false);
 		}
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < -0.01f));  // Flip sprite in direrction of motion
