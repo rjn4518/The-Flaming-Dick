@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114415212299880230}
   m_Layer: 5
   m_Name: Stamina
-  m_TagString: HealthBar
+  m_TagString: StaminaBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
