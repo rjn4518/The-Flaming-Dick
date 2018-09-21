@@ -7,12 +7,13 @@ public class Swimmm : GameMaster
     public float swimSpeed = 5f;
     public float boostSpeed = 7f;
     public float sinkSpeed = 0.75f;
-    public float surfaceHeight = 10f;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private GameObject surfaceMarker;
     private Vector2 move;
     private Vector2 direction;
+    public float surfaceHeight;
     private bool boost = false;
 
     // Use this for initialization
@@ -28,6 +29,12 @@ public class Swimmm : GameMaster
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        if(surfaceMarker == null)
+        {
+            surfaceMarker = GameObject.FindGameObjectWithTag("SurfaceMarker");
+        }
+
+        surfaceHeight = surfaceMarker.transform.position.y;
         rb.gravityScale = 0f;
 
     }
@@ -80,7 +87,10 @@ public class Swimmm : GameMaster
         }
         else
         {
-            rb.gravityScale = 1f;
+            while(transform.position.y > surfaceHeight - 0.5f)
+            {
+                rb.gravityScale = 1f;
+            }
         }
 	}
 

@@ -20,6 +20,7 @@ TagManager:
   - Sky
   - HealthBar
   - StaminaBar
+  - SurfaceMarker
   layers:
   - Default
   - TransparentFX

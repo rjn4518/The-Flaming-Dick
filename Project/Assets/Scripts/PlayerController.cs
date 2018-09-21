@@ -25,6 +25,7 @@ public class PlayerController : CustomPhysics
     private bool sliding = false;
 
     private SpriteRenderer spriteRenderer;
+    private Animator anim;
 
     private void Awake()
     {
@@ -37,9 +38,14 @@ public class PlayerController : CustomPhysics
             joint.enabled = false;
         }
 
+        if(anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+
         idleCollider.enabled = true;
         slidingCollider.enabled = false;
-   }
+    }
 
     protected override void ComputeVelocity()
     {
@@ -84,9 +90,6 @@ public class PlayerController : CustomPhysics
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
-        //animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Math.Abs(velocity.x / maxSpeed);
-
         if (onIce && grounded)
         {
             float force = move.x * horizontalForce;
@@ -96,9 +99,14 @@ public class PlayerController : CustomPhysics
         }
         else
         {
-            if (Input.GetKey(KeyCode.X))
+            if (Input.GetKey(KeyCode.X)) //&& grounded)
             {
                 sliding = true;  // If pressing X, set velocity to sliding speed
+
+                if (gm.currentStamina == 0)
+                {
+                    sliding = false;
+                }
             }
             else
             {
@@ -106,11 +114,17 @@ public class PlayerController : CustomPhysics
             }
 
             Slide(sliding, ceiling, move);
+
+            anim.SetFloat("Speed", Mathf.Abs(move.x));
+            anim.SetBool("Grounded", grounded);
+            anim.SetBool("Slide", sliding);
         }
     }
 
     private void Slide(bool _sliding, bool ceiling, Vector2 _move)
     {
+        //Vector2 _targetVelocity;
+
         if(!_sliding)
         {
             if(ceiling)

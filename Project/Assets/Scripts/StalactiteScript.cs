@@ -43,7 +43,9 @@ public class StalactiteScript : GameMaster
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        gm.currentHealth -= damage;
-        Debug.Log(gm.currentHealth);
+        if(collision.tag == "PlayerSprite")
+        {
+            gm.currentHealth -= damage;
+        }
     }
 }
