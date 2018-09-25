@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/* Ideas:
+ * 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

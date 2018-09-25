@@ -61,21 +61,21 @@ public class PlayerController : CustomPhysics
             joint.distance -= step * Input.GetAxis("Vertical");
         }
 
-        Vector2 move = Vector2.zero;
+        float move;// = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");  // = 1 if moving right, = -1 if moving left
+        move = Input.GetAxis("Horizontal");  // = 1 if moving right, = -1 if moving left
 
-		if (Input.GetButtonDown ("Jump") && grounded) // If pressing spacebar and grounded, jump
+		if (Input.GetButtonDown("Jump") && grounded) // If pressing spacebar and grounded, jump
         {  
 			velocity.y = jumpSpeed;
 			doubleJump = false;
 		}
-        else if (Input.GetButtonDown ("Jump") && !doubleJump) // If player hasn't already double jumped
+        else if (Input.GetButtonDown("Jump") && !doubleJump) // If player hasn't already double jumped
         {  
 			velocity.y += doubleJumpSpeed;  // Add double jump speed to velocity
 			doubleJump = true;
 		}
-        else if (Input.GetButtonUp ("Jump")) // When spacebar is released, reduce y velocity so player falls faster
+        else if (Input.GetButtonUp("Jump")) // When spacebar is released, reduce y velocity so player falls faster
         {  
 			if (velocity.y > 0)
             {
@@ -83,7 +83,7 @@ public class PlayerController : CustomPhysics
 			}
 		}
 
-        bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < -0.01f));  // Flip sprite in direrction of motion
+        bool flipSprite = (spriteRenderer.flipX ? (move > 0.01f) : (move < -0.01f));  // Flip sprite in direrction of motion
 
         if (flipSprite)
         {
@@ -92,7 +92,7 @@ public class PlayerController : CustomPhysics
 
         if (onIce && grounded)
         {
-            float force = move.x * horizontalForce;
+            float force = move * horizontalForce;
             //Debug.Log("MOVING ON ICE MOTHERFUCKER");
             targetVelocity += new Vector2((force/rb.mass) * Time.deltaTime, velocity.y);  // Converts force to velocity and adds it to current velocity (f=m(v/t))
             //Debug.Log(targetVelocity);
@@ -115,17 +115,17 @@ public class PlayerController : CustomPhysics
 
             Slide(sliding, ceiling, move);
 
-            anim.SetFloat("Speed", Mathf.Abs(move.x));
+            anim.SetFloat("Speed", Mathf.Abs(move));
             anim.SetBool("Grounded", grounded);
             anim.SetBool("Slide", sliding);
         }
     }
 
-    private void Slide(bool _sliding, bool ceiling, Vector2 _move)
+    private void Slide(bool _sliding, bool ceiling, float _move)
     {
         //Vector2 _targetVelocity;
 
-        if(!_sliding)
+        if(!_sliding && grounded)
         {
             if(ceiling)
             {
@@ -141,14 +141,18 @@ public class PlayerController : CustomPhysics
                 slidingCollider.enabled = true;
             }
 
-            if (gm.currentStamina > 0 && Mathf.Abs(_move.x) > 0)
+            if (gm.currentStamina > 0 && Mathf.Abs(_move) > 0)
             {
                 gm.currentStamina--;
-                targetVelocity = _move * slideSpeed;
+
+                if(grounded)
+                {
+                    targetVelocity.x = _move * slideSpeed;
+                }
             }
             else
             {
-                targetVelocity = _move * maxSpeed;
+                targetVelocity.x = _move * maxSpeed;
             }
         }
         else if (!_sliding)
@@ -164,7 +168,8 @@ public class PlayerController : CustomPhysics
                 gm.currentStamina++;
             }
 
-            targetVelocity = _move * maxSpeed;
+           
+            targetVelocity.x = _move * maxSpeed;
         }
     }
 }

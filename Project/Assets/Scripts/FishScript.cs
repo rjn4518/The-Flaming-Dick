@@ -37,7 +37,7 @@ public class FishScript : GameMaster
                     {
                        gm.currentHealth = gm.maxHealth;
                     }
-                    Debug.Log(gm.currentHealth);
+                    gm.fishCount++;
                     break;
 
                 default:

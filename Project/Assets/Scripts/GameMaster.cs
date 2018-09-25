@@ -151,11 +151,11 @@ public class GameMaster : MonoBehaviour {
     {
         // Kills player and spawns a new one
 
-            Destroy(player);
-            player = Instantiate(playerTemp, spawnPoint.transform.position, Quaternion.identity);
-            StartCoroutine(Respawn());
-            currentHealth = maxHealth;
-            Debug.Log("Kill that bitch");
+        Destroy(player);
+        player = Instantiate(playerTemp, spawnPoint.transform.position, Quaternion.identity);
+        StartCoroutine(Respawn());
+        currentHealth = maxHealth;
+        Debug.Log("Kill that bitch");
     }
 
     IEnumerator Respawn()
