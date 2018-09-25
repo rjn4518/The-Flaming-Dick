@@ -1,5 +1,7 @@
 ﻿/* Ideas:
- * 
+ *    -Use hat to suck things up
+ *    -Use hat to fly (short distance)
+ *    -Use hat as paraglider
 */
 
 using System.Collections;
