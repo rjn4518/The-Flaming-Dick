@@ -114,11 +114,11 @@ public class PlayerController : CustomPhysics
             }
 
             Slide(sliding, ceiling, move);
-
-            anim.SetFloat("Speed", Mathf.Abs(move));
-            anim.SetBool("Grounded", grounded);
-            anim.SetBool("Slide", sliding);
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(move));
+        anim.SetBool("Grounded", grounded);
+        anim.SetBool("Slide", sliding);
     }
 
     private void Slide(bool _sliding, bool ceiling, float _move)
@@ -143,11 +143,10 @@ public class PlayerController : CustomPhysics
 
             if (gm.currentStamina > 0 && Mathf.Abs(_move) > 0)
             {
-                gm.currentStamina--;
-
                 if(grounded)
                 {
                     targetVelocity.x = _move * slideSpeed;
+                    gm.currentStamina--;
                 }
             }
             else

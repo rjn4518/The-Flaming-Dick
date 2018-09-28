@@ -161,8 +161,10 @@ public class CustomPhysics : GameMaster
 
                     float projection = Vector2.Dot(velocity, currentNormal);
 
-                    if (projection < 0)  // Fuck if I know lol
-                        velocity = velocity - projection * currentNormal;  // Think I copied this from somewhere
+                    if (projection != 0)  // Fuck if I know lol
+                    {
+                        velocity = velocity - projection * currentNormal;  // Think I copied this from somewhere3
+                    }
 
                     float modifiedDistance = hitBufferList[i].distance - shellRadius;  // Reduced the target distance if there is a collider is the object path
                     distance = modifiedDistance < distance ? modifiedDistance : distance;  // Makes sure object's collider doesn't end up inside another collider

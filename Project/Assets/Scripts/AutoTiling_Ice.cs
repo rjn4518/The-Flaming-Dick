@@ -126,7 +126,7 @@ public class AutoTiling_Ice : Tile
             return;
         }
 
-        AssetDatabase.CreateAsset(CreateInstance<AutoTiling>(), path);
+        AssetDatabase.CreateAsset(CreateInstance<AutoTiling_Ice>(), path);
     }
 #endif
 }
