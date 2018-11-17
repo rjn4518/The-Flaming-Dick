@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FallDeath : GameMaster
 { 
-    public float maxFallDist = 50f;
+    public float maxFallDist = 20f;
 
     // Detects "Idle," respawns
 

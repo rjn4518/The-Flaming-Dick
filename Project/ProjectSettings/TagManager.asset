@@ -21,6 +21,7 @@ TagManager:
   - HealthBar
   - StaminaBar
   - SurfaceMarker
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -66,6 +67,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1121895701
     locked: 0
   - name: Platform
     uniqueID: 1631144465

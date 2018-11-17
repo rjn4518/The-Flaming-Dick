@@ -12,6 +12,9 @@ public class AutoTiling_Water : Tile
     [SerializeField]
     private Sprite preview;
 
+    private int fuckFace = 1;
+    private int shitHead = 1;
+
     public override void RefreshTile(Vector3Int position, ITilemap tilemap)
     {
         // Checks all surrounding tiles and refreshes their sprites accordingly
@@ -30,8 +33,6 @@ public class AutoTiling_Water : Tile
     {
         string composition = string.Empty;
 
-        int fuckFace = 1;
-
         // Checks surrounding spaces for tiles and updates composition accordingly
         for (int x = -1; x <= 1; x++)
         {
@@ -44,12 +45,12 @@ public class AutoTiling_Water : Tile
             }
         }
 
-        // Good luck tring to understand this shit lol
+        // Chooses the tile based on string created by NeighborTile method
 
-        if (composition == "FalseTrueTrueFalseTrueFalseTrueTrue" || composition == "FalseFalseFalseFalseTrueFalseTrueTrue" ||
-            composition == "FalseTrueTrueFalseTrueFalseFalseFalse")
+        if (composition == "TrueTrueFalseTrueFalseTrueTrueFalse" || composition == "FalseFalseFalseTrueFalseTrueTrueFalse" ||
+            composition == "TrueTrueFalseTrueFalseFalseFalseFalse")
         {
-            switch(fuckFace)
+            switch (fuckFace)
             {
                 case 1:
                     tileData.sprite = waterSprites[0];
@@ -62,11 +63,12 @@ public class AutoTiling_Water : Tile
                 default:
                     break;
             }
+
+            fuckFace = fuckFace * -1;
         }
-        if(composition == "TrueTrueTrueTrueTrueTrueTrueTrue" || composition == "TrueTrueFalseTrueFalseTrueTrueFalse" ||
-           composition == "FalseFalseFalseTrueFalseTrueTrueTrue" || composition == "TrueTrueFalseTrueFalseFalseFalseFalse")
+        else
         {
-            switch (fuckFace)
+            switch (shitHead)
             {
                 case 1:
                     tileData.sprite = waterSprites[2];
@@ -79,16 +81,12 @@ public class AutoTiling_Water : Tile
                 default:
                     break;
             }
-        }
-        else
-        {
-            tileData.sprite = waterSprites[2];
+
+            shitHead = shitHead * -1;
         }
         // Basically just chooses a tile based on what composition is
 
         tileData.colliderType = ColliderType.Sprite;
-
-        fuckFace = fuckFace * -1;
     }
 
     private bool NeighborTile(ITilemap tileMap, Vector3Int position)

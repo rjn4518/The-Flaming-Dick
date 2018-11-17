@@ -136,6 +136,11 @@ public class CustomPhysics : GameMaster
                 {
                     onIce = false;
                 }
+
+                if (hitBufferList[i].collider.CompareTag("Water"))
+                {
+                    StartCoroutine(WaterDeath());
+                }
             }
             //Debug.Log(count);
             // Only executes once per frame... why???
@@ -211,5 +216,12 @@ public class CustomPhysics : GameMaster
         }
 
         return rotationAngle;
+    }
+
+    IEnumerator WaterDeath()
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        gm.currentHealth -= maxHealth;
     }
 }
