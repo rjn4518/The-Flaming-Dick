@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 50795179521992904}
   - component: {fileID: 58601341244630736}
   - component: {fileID: 232601631906323802}
-  - component: {fileID: 114473714371907606}
   - component: {fileID: 95048415312568702}
   - component: {fileID: 70632364913304858}
   m_Layer: 8
@@ -85,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726895489141628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.14, z: 0}
+  m_LocalPosition: {x: -0.3, y: 9.700001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862277107257808}
@@ -190,31 +189,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114473714371907606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380864959740142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f18d20743c9e4155abd848577564fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1726895489141628}
-  playerPrefab: {fileID: 1726895489141628}
-  playerSprite: {fileID: 1380864959740142}
-  playerTemp: {fileID: 1853957655798962, guid: 509486a4aca65a64f9b7c43a37015e8e, type: 2}
-  maxHealth: 100
-  maxStamina: 100
-  fishCountText: {fileID: 0}
-  healthBar: {fileID: 0}
-  staminaBar: {fileID: 0}
-  mainCamera: {fileID: 0}
-  currentHealth: 0
-  currentStamina: 0
-  fishCount: 0
-  maxFallDist: 50
 --- !u!114 &114710715176683528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,11 +228,6 @@ MonoBehaviour:
   horizontalForce: 10
   joint: {fileID: 0}
   step: 0.02
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  distance: 5
-  minHookDist: 0.5
 --- !u!212 &212759661238294290
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -290,8 +259,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1121895701
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f62bd9e4aca4c846829b705ba35fe35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -316,8 +285,8 @@ DistanceJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 92.457245, y: 3.870302}
   m_ConnectedAnchor: {x: 167.00485, y: 98.038574}
   m_AutoConfigureDistance: 1
-  m_Distance: 191.10406
+  m_Distance: 112.85855
   m_MaxDistanceOnly: 1
