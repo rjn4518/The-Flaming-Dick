@@ -5,7 +5,9 @@ using UnityEngine;
 // THIS SCRIPT DOESN'T WORK!!! :DDDDD
 
 public class FallDeath : GameMaster
-{ 
+{
+    Property property = new Property();
+
     public float maxFallDist = 20f;
 
     // Detects "Idle," respawns
@@ -14,8 +16,7 @@ public class FallDeath : GameMaster
     {
         if (playerSprite.transform.position.y <= -maxFallDist)
         {
-            currentHealth -= 100f;
-            Debug.Log(currentHealth);
+            gm.property.CurrentHealth -= 100f;
         }
     }
 }

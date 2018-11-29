@@ -222,6 +222,6 @@ public class CustomPhysics : GameMaster
     {
         yield return new WaitForSeconds(0.75f);
 
-        gm.currentHealth -= maxHealth;
+        property.CurrentHealth -= property.MaxHealth;
     }
 }

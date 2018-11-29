@@ -61,22 +61,22 @@ public class Swimmm : GameMaster
             rb.gravityScale = 0f;
             rb.velocity = Vector2.zero;
 
-            if (boost && gm.currentStamina > 0)
+            if (boost && gm.property.CurrentStamina > 0)
             {
                 move = new Vector2(direction.x * boostSpeed, direction.y * boostSpeed - sinkSpeed);
 
                 if (direction.magnitude > 0)
                 {
-                    gm.currentStamina--;
+                    gm.property.CurrentStamina--;
                 }
             }
             else
             {
                 move = new Vector2(direction.x * swimSpeed, direction.y * swimSpeed - sinkSpeed);
 
-                if (gm.currentStamina < gm.maxStamina && !boost)
+                if (gm.property.CurrentStamina < gm.property.MaxStamina && !boost)
                 {
-                    gm.currentStamina++;
+                    gm.property.CurrentStamina++;
                 }
             }
 

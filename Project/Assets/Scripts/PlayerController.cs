@@ -103,7 +103,7 @@ public class PlayerController : CustomPhysics
             {
                 sliding = true;  // If pressing X, set velocity to sliding speed
 
-                if (gm.currentStamina == 0)
+                if (gm.property.CurrentStamina == 0)
                 {
                     sliding = false;
                 }
@@ -141,12 +141,12 @@ public class PlayerController : CustomPhysics
                 slidingCollider.enabled = true;
             }
 
-            if (gm.currentStamina > 0 && Mathf.Abs(_move) > 0)
+            if (gm.property.CurrentStamina > 0 && Mathf.Abs(_move) > 0)
             {
                 if(grounded)
                 {
                     targetVelocity.x = _move * slideSpeed;
-                    gm.currentStamina--;
+                    gm.property.CurrentStamina--;
                 }
             }
             else
@@ -162,9 +162,9 @@ public class PlayerController : CustomPhysics
                 slidingCollider.enabled = false;
             }
 
-            if (gm.currentStamina < gm.maxStamina && !Input.GetKey(KeyCode.X))
+            if (gm.property.CurrentStamina < gm.property.MaxStamina && !Input.GetKey(KeyCode.X))
             {
-                gm.currentStamina++;
+                gm.property.CurrentStamina++;
             }
 
            

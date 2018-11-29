@@ -29,13 +29,14 @@ public class FishScript : GameMaster
                     break;
 
                 case "Red":
-                    if(gm.currentHealth <= gm.maxHealth - 25)
+                    if(gm.property.CurrentHealth <= property.MaxHealth - 25)
                     {
-                        gm.currentHealth += 25;
+                        property.CurrentHealth += 25;
                     }
                     else
                     {
-                       gm.currentHealth = gm.maxHealth;
+                        gm.property.CurrentHealth = property.MaxHealth;
+                        Debug.Log(gm.property.CurrentHealth);
                     }
                     gm.fishCount++;
                     break;

@@ -45,7 +45,8 @@ public class StalactiteScript : GameMaster
     {
         if(collision.tag == "PlayerSprite")
         {
-            gm.currentHealth -= damage;
+            gm.property.CurrentHealth -= damage;
+            Debug.Log(gm.property.CurrentHealth);
         }
     }
 }

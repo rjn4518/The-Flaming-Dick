@@ -7,17 +7,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMaster : MonoBehaviour {
+public class GameMaster : MonoBehaviour
+{
 
     public static GameMaster gm;  // Creates instance of GameMaster
+    public Property property = new Property();
 
     public GameObject player;
     public GameObject playerPrefab;
     public GameObject playerSprite;
     public GameObject playerTemp;
     public static GameObject spawnPoint;
-    public float maxHealth = 100f;
-    public float maxStamina = 100f;
 
     [HideInInspector]
     public Text fishCountText;
@@ -27,10 +27,6 @@ public class GameMaster : MonoBehaviour {
     public Image staminaBar;
     [HideInInspector]
     public Camera mainCamera;
-    [HideInInspector]
-    public float currentHealth;
-    [HideInInspector]
-    public float currentStamina;
     [HideInInspector]
     public int fishCount;
 
@@ -105,8 +101,9 @@ public class GameMaster : MonoBehaviour {
         }
 
         defaultWidth = healthBar.rectTransform.sizeDelta.x;
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
+        property.MaxHealth = 100;
+        property.CurrentHealth = property.MaxHealth;
+        property.CurrentStamina = property.MaxStamina;
     }
 
     void Update()
@@ -123,10 +120,10 @@ public class GameMaster : MonoBehaviour {
 
         Fall();
 
-        healthBar.rectTransform.sizeDelta = new Vector2((gm.currentHealth / gm.maxHealth) * defaultWidth, healthBar.rectTransform.sizeDelta.y);
-        staminaBar.rectTransform.sizeDelta = new Vector2((gm.currentStamina / gm.maxStamina) * defaultWidth, staminaBar.rectTransform.sizeDelta.y);
+        healthBar.rectTransform.sizeDelta = new Vector2((gm.property.CurrentHealth / gm.property.MaxHealth) * defaultWidth, healthBar.rectTransform.sizeDelta.y);
+        staminaBar.rectTransform.sizeDelta = new Vector2((gm.property.CurrentStamina / gm.property.MaxStamina) * defaultWidth, staminaBar.rectTransform.sizeDelta.y);
 
-        if (currentHealth <= 0)
+        if (property.CurrentHealth <= 0)
         {
             Death();
         }
@@ -154,7 +151,7 @@ public class GameMaster : MonoBehaviour {
         Destroy(player);
         player = Instantiate(playerTemp, spawnPoint.transform.position, Quaternion.identity);
         StartCoroutine(Respawn());
-        currentHealth = maxHealth;
+        property.CurrentHealth = property.MaxHealth;
         Debug.Log("Kill that bitch");
     }
 

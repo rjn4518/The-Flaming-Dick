@@ -24,7 +24,7 @@ public class SlidingController : GameMaster
     {
         if(gm.playerSprite.transform.position.x - gm.mainCamera.transform.position.x < -15f)
         {
-            gm.currentHealth -= gm.maxHealth;
+            gm.property.CurrentHealth -= property.MaxHealth;
         }
     }
 
