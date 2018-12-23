@@ -44,7 +44,8 @@ public class FishScript : GameMaster
                 default:
                     break;
             }
-            gm.fishCountText.text = "X " + gm.property.FishCount;
+			gm.fishCountText.text = gm.property.FishCount.ToString();
+			// Changed from gm.fishCountText.text = "X " + gm.property.FishCount;
 		}
 	}
 }
