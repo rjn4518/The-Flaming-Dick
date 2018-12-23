@@ -17,34 +17,34 @@ public class FishScript : GameMaster
             switch(tag)
             {
                 case "Bronze":
-                    gm.fishCount++;
+                    gm.property.FishCount++;
                     break;
 
                 case "Silver":
-                    gm.fishCount += 2;
+                    gm.property.FishCount += 2;
                     break;
 
                 case "Gold":
-                    gm.fishCount += 10;
+                    gm.property.FishCount += 10;
                     break;
 
                 case "Red":
-                    if(gm.property.CurrentHealth <= property.MaxHealth - 25)
+                    if(gm.property.CurrentHealth <= gm.property.MaxHealth - 25)
                     {
-                        property.CurrentHealth += 25;
+                        gm.property.CurrentHealth += 25;
                     }
                     else
                     {
-                        gm.property.CurrentHealth = property.MaxHealth;
-                        Debug.Log(gm.property.CurrentHealth);
+                        gm.property.CurrentHealth = gm.property.MaxHealth;
+                        Debug.Log(property.CurrentHealth);
                     }
-                    gm.fishCount++;
+                    gm.property.FishCount++;
                     break;
 
                 default:
                     break;
             }
-            gm.fishCountText.text = "X " + gm.fishCount;
+            gm.fishCountText.text = "X " + gm.property.FishCount;
 		}
 	}
 }

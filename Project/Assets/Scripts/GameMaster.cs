@@ -27,8 +27,6 @@ public class GameMaster : MonoBehaviour
     public Image staminaBar;
     [HideInInspector]
     public Camera mainCamera;
-    [HideInInspector]
-    public int fishCount;
 
     private float defaultWidth;
 
@@ -101,9 +99,10 @@ public class GameMaster : MonoBehaviour
         }
 
         defaultWidth = healthBar.rectTransform.sizeDelta.x;
-        property.MaxHealth = 100;
-        property.CurrentHealth = property.MaxHealth;
-        property.CurrentStamina = property.MaxStamina;
+        gm.property.MaxHealth = 100f;
+        gm.property.MaxStamina = 100f;
+        gm.property.CurrentHealth = gm.property.MaxHealth;
+        gm.property.CurrentStamina = gm.property.MaxStamina;
     }
 
     void Update()
@@ -123,7 +122,7 @@ public class GameMaster : MonoBehaviour
         healthBar.rectTransform.sizeDelta = new Vector2((gm.property.CurrentHealth / gm.property.MaxHealth) * defaultWidth, healthBar.rectTransform.sizeDelta.y);
         staminaBar.rectTransform.sizeDelta = new Vector2((gm.property.CurrentStamina / gm.property.MaxStamina) * defaultWidth, staminaBar.rectTransform.sizeDelta.y);
 
-        if (property.CurrentHealth <= 0)
+        if (gm.property.CurrentHealth <= 0)
         {
             Death();
         }
@@ -151,7 +150,7 @@ public class GameMaster : MonoBehaviour
         Destroy(player);
         player = Instantiate(playerTemp, spawnPoint.transform.position, Quaternion.identity);
         StartCoroutine(Respawn());
-        property.CurrentHealth = property.MaxHealth;
+        gm.property.CurrentHealth = gm.property.MaxHealth;
         Debug.Log("Kill that bitch");
     }
 
@@ -163,6 +162,10 @@ public class GameMaster : MonoBehaviour
 
         Destroy(player);
         player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
-        Debug.Log(player);
+    }
+
+    protected virtual void Damage()
+    {
+
     }
 }

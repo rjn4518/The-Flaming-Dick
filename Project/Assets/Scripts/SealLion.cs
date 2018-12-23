@@ -8,7 +8,9 @@ public class SealLion : GameMaster
     {
         if (other.tag == "PlayerSprite")
         {
-            property.CurrentHealth -= 100f;  // If you run into this shit, you die
+            gm.property.CurrentHealth -= 50f;  // If you run into this shit, you die
+
+            Damage();
         }
     }
 }

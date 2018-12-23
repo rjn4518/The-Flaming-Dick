@@ -171,4 +171,9 @@ public class PlayerController : CustomPhysics
             targetVelocity.x = _move * maxSpeed;
         }
     }
+
+    protected override void Damage()
+    {
+        transform.position += new Vector3(-Input.GetAxis("Horizontal"), 1, 0);
+    }
 }

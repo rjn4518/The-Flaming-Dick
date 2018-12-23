@@ -47,6 +47,8 @@ public class StalactiteScript : GameMaster
         {
             gm.property.CurrentHealth -= damage;
             Debug.Log(gm.property.CurrentHealth);
+
+            Damage();
         }
     }
 }

@@ -10,6 +10,8 @@ public class Property
     private float maxStamina;
     private float currentStamina;
 
+    private int fishCount;
+
     public float MaxHealth
     {
         get
@@ -55,6 +57,18 @@ public class Property
         set
         {
             currentStamina = value;
+        }
+    }
+
+    public int FishCount
+    {
+        get
+        {
+            return fishCount;
+        }
+        set
+        {
+            fishCount = value;
         }
     }
 }
