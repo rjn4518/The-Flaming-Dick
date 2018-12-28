@@ -11,7 +11,7 @@ public class StalactiteScript : GameMaster
     private float castDistance = 10000f;
 
     [SerializeField]
-    private float delay = 0.5f;
+    private float delay = 0.25f;
 
     [SerializeField]
     private float damage = 25f;

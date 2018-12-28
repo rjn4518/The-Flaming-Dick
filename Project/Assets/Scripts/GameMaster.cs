@@ -98,7 +98,7 @@ public class GameMaster : MonoBehaviour
 
         }
 
-        defaultWidth = healthBar.rectTransform.sizeDelta.x;
+        defaultWidth = staminaBar.rectTransform.sizeDelta.x;
         gm.property.MaxHealth = 100f;
         gm.property.MaxStamina = 100f;
         gm.property.CurrentHealth = gm.property.MaxHealth;
