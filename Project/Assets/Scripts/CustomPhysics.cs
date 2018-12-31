@@ -1,12 +1,4 @@
-﻿/* ------------------------------------------------------------------------- TO DO ---------------------------------------------------------------------------------
- * 1) Add some sort of friction  
- * 2) Find a way for objects to slide down slopes but not the player
- * 3) {Set up triggers}
- * 4) {Figure out how to detect ice}
- * 5) Find a way to do underwater physics
---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
