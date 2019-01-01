@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CustomPhysics : MonoBehaviour
 {
-    public float minGroundNormalY = 0.65f;  // Determines the steepest slope an object can stand on
     public float gravityModifier = 1f;  // Allows for more or less gravity
 
     [SerializeField]
@@ -24,6 +23,7 @@ public class CustomPhysics : MonoBehaviour
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);  // List of all things the object is colliding with or will collide with next frame
     protected bool y_Movement;
 
+    protected const float minGroundNormalY = 0.65f;  // Determines the steepest slope an object can stand on
     protected const float minMoveDistance = 0.001f;  // Minimum distance the object can move
     protected const float shellRadius = 0.01f;  // Specifies a small buffer distance between objects so they don't end up inside each other
     protected const float ceilingRadius = 0.2f;
@@ -165,8 +165,6 @@ public class CustomPhysics : MonoBehaviour
             }
         }
 
-        //Debug.Log(yMovement);
-
         rb.position = rb.position + move.normalized * distance;  // Sets new object position
     }
 
@@ -189,13 +187,11 @@ public class CustomPhysics : MonoBehaviour
             Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 130)  // Math...
         {
             rotationAngle = 45f;
-                //Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg;  // Math...
         }
         else if (Vector2.Dot(Vector2.right, groundNormal) > 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 50 &&
                  Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 0)  // Math...
         {
             rotationAngle = -45f;
-                //Mathf.Acos(Vector2.Dot(Vector2.up, groundNormal)) * Mathf.Rad2Deg - 90; // Math...
         }
         else
         {
