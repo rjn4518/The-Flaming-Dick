@@ -14,7 +14,7 @@ public class StalactiteScript : MonoBehaviour
     private float delay = 0.25f;
 
     [SerializeField]
-    private float damage = 25f;
+    private float damage = -25f;
 
     private Rigidbody2D rb;
 
