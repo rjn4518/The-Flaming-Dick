@@ -22,6 +22,7 @@ TagManager:
   - StaminaBar
   - SurfaceMarker
   - Water
+  - Music
   layers:
   - Default
   - TransparentFX
