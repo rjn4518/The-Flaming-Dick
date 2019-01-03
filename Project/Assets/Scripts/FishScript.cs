@@ -11,7 +11,6 @@ public class FishScript : MonoBehaviour
         // Destroys the fish when you run into it
 		if(other.name == "Player Sprite")
 		{
-			//other.GetComponent<playerControllerRedo>().points++;  <-- We can add a points system later
 			Destroy(gameObject);
 
             switch(tag)
@@ -29,9 +28,9 @@ public class FishScript : MonoBehaviour
                     break;
 
                 case "Red":
-                    GameMaster.UpdateHealth(25f);
-
                     GameMaster.UpdateFish(1);
+
+                    GameMaster.UpdateHealth(25f);
                     break;
 
                 default:

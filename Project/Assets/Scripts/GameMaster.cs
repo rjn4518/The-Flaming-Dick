@@ -106,4 +106,15 @@ public class GameMaster : MonoBehaviour
     {
         maxStamina += amount;
     }
+
+    public IEnumerator Damage()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            //spriteRenderer = false;
+            yield return new WaitForSeconds(0.25f);
+           // PlayerController.GetSpriteRenderer().enabled = true;
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
 }

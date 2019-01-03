@@ -38,3 +38,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_9.unity
+    guid: ea7cff9b7d13f416b973c6211171aef0

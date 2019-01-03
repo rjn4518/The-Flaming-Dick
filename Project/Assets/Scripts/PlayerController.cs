@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : CustomPhysics
 {
+
     private Collider2D idleCollider;
     private Collider2D slidingCollider;
 
@@ -16,22 +17,22 @@ public class PlayerController : CustomPhysics
     private bool doubleJump;  // Can the player double jump?
     private bool sliding = false;
 
-    private SpriteRenderer spriteRenderer;
     private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        if(spriteRenderer == null)
+        if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();  // Get player's sprite renderer
         }
 
-        if(idleCollider == null)
+        if (idleCollider == null)
         {
             idleCollider = GetComponent<CircleCollider2D>();
         }
 
-        if(slidingCollider == null)
+        if (slidingCollider == null)
         {
             slidingCollider = GetComponent<CapsuleCollider2D>();
         }
@@ -127,6 +128,11 @@ public class PlayerController : CustomPhysics
             {
                 idleCollider.enabled = false;
                 slidingCollider.enabled = true;
+            }
+            else
+            {
+                idleCollider.enabled = true;
+                slidingCollider.enabled = false;
             }
 
             if (GameMaster.GetCurrentStamina() > 0 && Mathf.Abs(_move) > 0)
