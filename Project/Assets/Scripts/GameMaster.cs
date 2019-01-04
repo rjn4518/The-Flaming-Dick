@@ -20,6 +20,8 @@ public class GameMaster : MonoBehaviour
 
     protected static int fishCount;
 
+    protected static bool flag;
+
     public static float GetMaxHealth()
     {
         return maxHealth;
@@ -43,6 +45,11 @@ public class GameMaster : MonoBehaviour
     public static int GetFishCount()
     {
         return fishCount;
+    }
+
+    public static bool GetFlag()
+    {
+        return flag;
     }
 
     private void Awake()
@@ -70,6 +77,7 @@ public class GameMaster : MonoBehaviour
         else
         {
             currentHealth += amount;
+            flag = true;
         }
 
         if(currentHealth <= 0f)
@@ -107,14 +115,8 @@ public class GameMaster : MonoBehaviour
         maxStamina += amount;
     }
 
-    public IEnumerator Damage()
+    public static void ResetFlag()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            //spriteRenderer = false;
-            yield return new WaitForSeconds(0.25f);
-           // PlayerController.GetSpriteRenderer().enabled = true;
-            yield return new WaitForSeconds(0.25f);
-        }
+        flag = false;
     }
 }

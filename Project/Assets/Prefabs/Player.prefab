@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 95048415312568702}
   - component: {fileID: 70632364913304858}
   - component: {fileID: 114662346366208466}
+  - component: {fileID: 114056346727293952}
   m_Layer: 8
   m_Name: Player Sprite
   m_TagString: PlayerSprite
@@ -85,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726895489141628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862277107257808}
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380864959740142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -41.4, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092178915349232}
@@ -190,6 +191,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114056346727293952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380864959740142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a05188971b2ab4180ae10af4fae8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114326594091993610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,21 +213,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58a88a3068c92344afb4b797f33d21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
   gravityModifier: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
   ceilingCheck: {fileID: 4092178915349232}
-  idleCollider: {fileID: 58601341244630736}
-  slidingCollider: {fileID: 58601341244630736}
   maxSpeed: 2
   slideSpeed: 5
   jumpSpeed: 10
   doubleJumpSpeed: 6
   horizontalForce: 10
-  joint: {fileID: 0}
-  step: 0.02
 --- !u!114 &114662346366208466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,5 +295,5 @@ DistanceJoint2D:
   m_Anchor: {x: 92.457245, y: 3.870302}
   m_ConnectedAnchor: {x: 167.00485, y: 98.038574}
   m_AutoConfigureDistance: 1
-  m_Distance: 116.11795
+  m_Distance: 142.9833
   m_MaxDistanceOnly: 1
