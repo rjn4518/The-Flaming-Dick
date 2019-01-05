@@ -12,10 +12,8 @@ public class PlayerController : CustomPhysics
     public float slideSpeed = 10;  // Player's sliding speed
     public float jumpSpeed = 7;  // Player's jumping speed
     public float doubleJumpSpeed = 5;  // Player's double jump speed
+    public float floatSpeed = 3f;
     public float horizontalForce = 10f;  // Force applied to player moving on ice
-
-    private bool doubleJump;  // Can the player double jump?
-    private bool sliding = false;
 
     private Animator anim;
     private SpriteRenderer spriteRenderer;
@@ -50,19 +48,19 @@ public class PlayerController : CustomPhysics
     {
         base.ComputeVelocity();
 
-        float move;// = Vector2.zero;
+        float move;
 
         move = Input.GetAxis("Horizontal");  // = 1 if moving right, = -1 if moving left
 
 		if (Input.GetButtonDown("Jump") && grounded) // If pressing spacebar and grounded, jump
         {  
 			velocity.y = jumpSpeed;
-			doubleJump = false;
+			Abilities.SetDoubleJump(false);
 		}
-        else if (Input.GetButtonDown("Jump") && !doubleJump) // If player hasn't already double jumped
+        else if (Input.GetButtonDown("Jump") && !Abilities.GetDoubleJump()) // If player hasn't already double jumped
         {  
 			velocity.y += doubleJumpSpeed;  // Add double jump speed to velocity
-			doubleJump = true;
+			Abilities.SetDoubleJump(true);
 		}
         else if (Input.GetButtonUp("Jump")) // When spacebar is released, reduce y velocity so player falls faster
         {  
@@ -82,32 +80,49 @@ public class PlayerController : CustomPhysics
         if (onIce && grounded)
         {
             float force = move * horizontalForce;
-            //Debug.Log("MOVING ON ICE MOTHERFUCKER");
             targetVelocity += new Vector2((force/rb.mass) * Time.deltaTime, velocity.y);  // Converts force to velocity and adds it to current velocity (f=m(v/t))
-            //Debug.Log(targetVelocity);
         }
         else
         {
             if (Input.GetKey(KeyCode.X)) //&& grounded)
             {
-                sliding = true;  // If pressing X, set velocity to sliding speed
+                Abilities.SetSlide(true);  // If pressing X, set velocity to sliding speed
 
                 if (GameMaster.GetCurrentStamina() == 0)
                 {
-                    sliding = false;
+                    Abilities.SetSlide(false);
                 }
             }
             else
             {
-                sliding = false;  // If not pressing X, set velocity to walking speed
+                Abilities.SetSlide(false);  // If not pressing X, set velocity to walking speed
             }
 
-            Slide(sliding, ceiling, move);
+            if(!grounded)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    Abilities.SetFly(true);
+                }
+                else
+                {
+                    Abilities.SetFly(false);
+                }
+            }
+
+            Slide(Abilities.GetSlide(), ceiling, move);
+            Fly(Abilities.GetFly());
+        }
+
+
+        if (GameMaster.GetCurrentStamina() < GameMaster.GetMaxStamina() && !Input.GetKey(KeyCode.X) && !Input.GetKey(KeyCode.LeftShift)  && grounded)
+        {
+            GameMaster.UpdateStamina(0.25f);
         }
 
         anim.SetFloat("Speed", Mathf.Abs(move));
         anim.SetBool("Grounded", grounded);
-        anim.SetBool("Slide", sliding);
+        anim.SetBool("Slide", Abilities.GetSlide());
     }
 
     private void Slide(bool _sliding, bool ceiling, float _move)
@@ -155,14 +170,22 @@ public class PlayerController : CustomPhysics
                 idleCollider.enabled = true;
                 slidingCollider.enabled = false;
             }
-
-            if (GameMaster.GetCurrentStamina() < GameMaster.GetMaxStamina() && !Input.GetKey(KeyCode.X))
-            {
-                GameMaster.UpdateStamina(1);
-            }
-
            
             targetVelocity.x = _move * maxSpeed;
         }
+    }
+
+    private void Fly(bool _fly)
+    {
+        if(_fly && GameMaster.GetCurrentStamina() > 0f)
+        {
+            velocity.y = floatSpeed;
+            GameMaster.UpdateStamina(-1f);
+        }
+    }
+
+    private void Glide(bool _glide)
+    {
+
     }
 }
