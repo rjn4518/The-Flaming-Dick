@@ -13,6 +13,7 @@ public class PlayerController : CustomPhysics
     public float jumpSpeed = 7;  // Player's jumping speed
     public float doubleJumpSpeed = 5;  // Player's double jump speed
     public float floatSpeed = 3f;
+    public float glideSpeed = -1f;
     public float horizontalForce = 10f;  // Force applied to player moving on ice
 
     private Animator anim;
@@ -104,18 +105,24 @@ public class PlayerController : CustomPhysics
                 {
                     Abilities.SetFly(true);
                 }
+                else if (Input.GetKey(KeyCode.Tab))
+                {
+                    Abilities.SetGlide(true);
+                }
                 else
                 {
                     Abilities.SetFly(false);
+                    Abilities.SetGlide(false);
                 }
             }
 
             Slide(Abilities.GetSlide(), ceiling, move);
             Fly(Abilities.GetFly());
+            Glide(Abilities.GetGlide());
         }
 
 
-        if (GameMaster.GetCurrentStamina() < GameMaster.GetMaxStamina() && !Input.GetKey(KeyCode.X) && !Input.GetKey(KeyCode.LeftShift)  && grounded)
+        if (GameMaster.GetCurrentStamina() < GameMaster.GetMaxStamina() && !Input.GetKey(KeyCode.X) && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.Tab) && grounded)
         {
             GameMaster.UpdateStamina(0.25f);
         }
@@ -186,6 +193,10 @@ public class PlayerController : CustomPhysics
 
     private void Glide(bool _glide)
     {
-
+        if(_glide && GameMaster.GetCurrentStamina() > 0f)
+        {
+            velocity.y = glideSpeed;
+            GameMaster.UpdateStamina(-1f);
+        }
     }
 }
