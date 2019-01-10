@@ -51314,6 +51314,12 @@ Prefab:
       propertyPath: playerLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212169490562220932, guid: 51c664d7df41f994e96dbb1390321ca8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 186cb30385bc74cef80d6a5952ee5865,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
   m_IsPrefabParent: 0

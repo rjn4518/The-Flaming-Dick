@@ -40239,8 +40239,8 @@ Transform:
   - {fileID: 650457781}
   - {fileID: 1252461827}
   - {fileID: 1399491154}
-  - {fileID: 71748388}
   - {fileID: 306271382}
+  - {fileID: 71748388}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41068,7 +41068,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -31.68
+      value: -31.669
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -41114,6 +41114,17 @@ Prefab:
       propertyPath: m_Name
       value: Ice Stalactite 1a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 61742518476315696, guid: 51c664d7df41f994e96dbb1390321ca8,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 212169490562220932, guid: 51c664d7df41f994e96dbb1390321ca8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 186cb30385bc74cef80d6a5952ee5865,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
   m_IsPrefabParent: 0
@@ -41366,6 +41377,16 @@ Prefab:
       propertyPath: m_Name
       value: Ice Stalactite 1b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 61408406980717416, guid: e59540148e04adb4ab98b954f82b191a,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61408406980717416, guid: e59540148e04adb4ab98b954f82b191a,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
   m_IsPrefabParent: 0
@@ -41387,7 +41408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.712
+      value: 8.706
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -41459,7 +41480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.559999
+      value: 8.755
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -41510,6 +41531,12 @@ Prefab:
       propertyPath: playerLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212457709443715074, guid: e59540148e04adb4ab98b954f82b191a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffb2d72bbc6ba4ed5979673b97bc3b5e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
   m_IsPrefabParent: 0

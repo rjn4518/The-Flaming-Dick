@@ -71673,7 +71673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 18.089
+      value: 18.084
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -71711,6 +71711,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.1852238
       objectReference: {fileID: 0}
+    - target: {fileID: 212169490562220932, guid: 51c664d7df41f994e96dbb1390321ca8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 186cb30385bc74cef80d6a5952ee5865,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
   m_IsPrefabParent: 0
@@ -72476,11 +72482,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -35.661003
+      value: -35.68
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.645
+      value: 14.435
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -72522,6 +72528,12 @@ Prefab:
       propertyPath: m_Name
       value: Ice Stalactite 1b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212457709443715074, guid: e59540148e04adb4ab98b954f82b191a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffb2d72bbc6ba4ed5979673b97bc3b5e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
   m_IsPrefabParent: 0
@@ -73001,7 +73013,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.652
+      value: 14.429
       objectReference: {fileID: 0}
     - target: {fileID: 4945459572861062, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -73043,6 +73055,12 @@ Prefab:
       propertyPath: m_Name
       value: Ice Stalactite 1b (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 212457709443715074, guid: e59540148e04adb4ab98b954f82b191a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffb2d72bbc6ba4ed5979673b97bc3b5e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e59540148e04adb4ab98b954f82b191a, type: 2}
   m_IsPrefabParent: 0
@@ -73328,7 +73346,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.492001
+      value: 14.482
       objectReference: {fileID: 0}
     - target: {fileID: 4652030081223620, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -73370,6 +73388,12 @@ Prefab:
       propertyPath: m_Name
       value: Ice Stalactite 1a (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 212169490562220932, guid: 51c664d7df41f994e96dbb1390321ca8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 186cb30385bc74cef80d6a5952ee5865,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51c664d7df41f994e96dbb1390321ca8, type: 2}
   m_IsPrefabParent: 0
