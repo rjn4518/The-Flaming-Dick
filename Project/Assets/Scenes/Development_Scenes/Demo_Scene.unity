@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1606,6 +1606,7 @@ MonoBehaviour:
   jumpSpeed: 10
   doubleJumpSpeed: 6
   floatSpeed: 3
+  glideSpeed: -1
   horizontalForce: 10
 --- !u!212 &2121566167
 SpriteRenderer:
