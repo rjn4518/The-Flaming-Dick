@@ -11,21 +11,15 @@ public class SlidingController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 velocity;
     private float yDirection;
-    private Camera mainCamera;
+    private float startingY;
     
     private void Awake()
     {
-        if (rb == null)
+        startingY = transform.position.y;
+
+        if(rb == null)
         {
             rb = GetComponent<Rigidbody2D>();  // Gets the rigidbody of the current object
-        }
-    }
-
-    private void Update()
-    {
-        if(transform.position.x - mainCamera.transform.position.x < -15f)
-        {
-            GameMaster.UpdateHealth(GameMaster.GetMaxHealth());
         }
     }
 

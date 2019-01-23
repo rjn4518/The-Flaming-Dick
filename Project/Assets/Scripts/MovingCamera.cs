@@ -18,10 +18,7 @@ public class MovingCamera : MonoBehaviour
 
     private void Update()
     {
-        if (target.transform.position.x - transform.position.x < -15f)
-        {
-            StartCoroutine(CameraReset());
-        }
+        
     }
 
     private void FixedUpdate()
