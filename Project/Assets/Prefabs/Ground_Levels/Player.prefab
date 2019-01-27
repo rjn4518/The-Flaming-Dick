@@ -222,6 +222,8 @@ MonoBehaviour:
   slideSpeed: 5
   jumpSpeed: 10
   doubleJumpSpeed: 6
+  floatSpeed: 3
+  glideSpeed: -1
   horizontalForce: 10
 --- !u!114 &114662346366208466
 MonoBehaviour:

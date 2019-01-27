@@ -11,11 +11,11 @@ public class SlidingController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 velocity;
     private float yDirection;
-    private float startingY;
+    private static Vector3 startingPos = new Vector3(0f, 0f, 0f);
     
     private void Awake()
     {
-        startingY = transform.position.y;
+        transform.position = startingPos;
 
         if(rb == null)
         {
@@ -25,12 +25,22 @@ public class SlidingController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity.x = baseSpeed*Mathf.Exp(speedMultiplier*rb.position.x);
+        velocity.x = baseSpeed*Mathf.Exp(speedMultiplier * rb.position.x);
 
         yDirection = Input.GetAxis("Vertical");
 
         velocity.y = yDirection * verticalSpeed;
 
         rb.position += velocity * Time.deltaTime;
+    }
+
+    public static Vector3 GetStartingPos()
+    {
+        return startingPos;
+    }
+
+    public static void SetStartingPos(Vector3 position)
+    {
+        startingPos = position;
     }
 }

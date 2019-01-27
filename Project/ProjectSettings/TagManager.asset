@@ -9,7 +9,6 @@ TagManager:
   - Collectable
   - SpawnPoint
   - Platform
-  - Hook
   - PlayerSprite
   - EndLevel
   - Red
@@ -23,6 +22,11 @@ TagManager:
   - SurfaceMarker
   - Water
   - Music
+  - SealLion
+  - Puddle
+  - Icicle
+  - Trash
+  - TrashCan
   layers:
   - Default
   - TransparentFX
