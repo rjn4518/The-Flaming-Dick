@@ -11,7 +11,7 @@ public class SlippyObstacle : MonoBehaviour
         switch(tag)
         {
             case "Puddle":
-                damage = -50f;
+                damage = -15f;
                 break;
 
             case "SealLion":
