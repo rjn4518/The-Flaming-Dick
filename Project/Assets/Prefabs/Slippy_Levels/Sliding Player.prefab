@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 61397536800564442}
   - component: {fileID: 114439905561511662}
   - component: {fileID: 50473400908683480}
+  - component: {fileID: 114418319285840374}
   m_Layer: 0
-  m_Name: Idle
+  m_Name: Player Sprite
   m_TagString: PlayerSprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61397536800564442
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -117,6 +118,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.59}
   m_EdgeRadius: 0
+--- !u!114 &114418319285840374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219746086695884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a05188971b2ab4180ae10af4fae8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114439905561511662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efaf8c95585b104f92b439760f6620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 5
+  baseSpeed: 4.5
   speedMultiplier: 0.001
   verticalSpeed: 5
 --- !u!212 &212874572902895262

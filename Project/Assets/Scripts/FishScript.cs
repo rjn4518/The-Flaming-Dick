@@ -11,7 +11,9 @@ public class FishScript : MonoBehaviour
         // Destroys the fish when you run into it
 		if(other.name == "Player Sprite")
 		{
-			Destroy(gameObject);
+            Debug.Log(other);
+            Debug.Log(tag);
+            Destroy(gameObject);
 
             switch(tag)
             {
