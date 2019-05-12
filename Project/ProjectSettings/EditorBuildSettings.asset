@@ -9,41 +9,41 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_1.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 1.unity
     guid: 52738bf19c79591478434186c61cb0a2
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_2.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 2.unity
     guid: cdeed0cbec25f1f4baa85395b2245f02
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_3.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 3.unity
     guid: ef43e94b767655f4c9808fd5cad2acc5
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_4.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 4.unity
     guid: 7f9213bffbd9e4a78872736f01e6f119
   - enabled: 0
     path: Assets/Scenes/Development_Scenes/Demo_Scene.unity
     guid: 5d022a4e3f9e5c244984d7baa74c553e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_5.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 5.unity
     guid: 02e975b66647f4158b472040266a56f6
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_6.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 6.unity
     guid: 158c0f6f733994e55a12e8a7c0f64606
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_7.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 7.unity
     guid: 673c780948ca74ae095e8fcf203e16d3
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_8.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 8.unity
     guid: 7d8fb681104f042ad91b69224f24c27f
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_9.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 9.unity
     guid: ea7cff9b7d13f416b973c6211171aef0
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_10.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 10.unity
     guid: 755408d82eebd43d489d565182e3059e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_11.unity
+    path: Assets/Scenes/Levels/Ground Levels/Ground 11.unity
     guid: 9d535cdc3907a45e3ac95f8baf81aab5
