@@ -6,6 +6,8 @@ public class SealLion : MonoBehaviour
 {
     private static float damage = -50f;
 
+
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.tag == "PlayerSprite")
@@ -13,4 +15,14 @@ public class SealLion : MonoBehaviour
             GameMaster.UpdateHealth(damage);
         }      
     }
+
+	void Start ()
+	{
+		
+	}
+
+	void Update ()
+	{
+		
+	}
 }
