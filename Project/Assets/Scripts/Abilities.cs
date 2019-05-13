@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/********************************************************************************** Ability Ideas ***************************************************************************************
+Player throws egg
+	Throw egg player animation
+	Costs some stamina
+
+ Seal lions walk back and forth
+	Probably in seallion script...
+	Seal lion walking animation
+****************************************************************************************************************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +20,15 @@ public class Abilities : MonoBehaviour
     private static bool fly = false;
     private static bool glide = false;
 
+    private static bool eggThrow = false;
+
     private static bool enableDoubleJump = true;
     private static bool enableSlide = true;
 
     private static bool enableFly = true;
     private static bool enableGlide = true;
+
+    private static bool enableEggThrow = true;
 
     public static bool GetDoubleJump()
     {
@@ -36,6 +50,11 @@ public class Abilities : MonoBehaviour
         return glide;
     }
 
+    public static bool GetEggThrow()
+    {
+        return eggThrow;
+    }
+
     public static void EnableDoubleJump()
     {
         enableDoubleJump = true;
@@ -54,6 +73,11 @@ public class Abilities : MonoBehaviour
     public static void EnableGlide()
     {
         enableGlide = true;
+    }
+
+    public static void EnableEggThrow()
+    {
+        enableEggThrow = true;
     }
 
     public static void SetDoubleJump(bool canDoubleJump)
@@ -115,14 +139,19 @@ public class Abilities : MonoBehaviour
             }
         }
     }
+
+    public static void SetEggThrow(bool canThrow)
+    {
+        if(enableEggThrow)
+        {
+            if(canThrow)
+            {
+                eggThrow = true;
+            }
+            else
+            {
+                eggThrow = false;
+            }
+        }
+    }
 }
-
-// Ability Ideas
-
-// Player throws egg
-//		Throw egg player animation
-//		Costs some stamina
-
-// Seal lions walk back and forth
-//		Probably in seallion script...
-//		Seal lion walking animation
