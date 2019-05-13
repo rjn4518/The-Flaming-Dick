@@ -116,3 +116,13 @@ public class Abilities : MonoBehaviour
         }
     }
 }
+
+// Ability Ideas
+
+// Player throws egg
+//		Throw egg player animation
+//		Costs some stamina
+
+// Seal lions walk back and forth
+//		Probably in seallion script...
+//		Seal lion walking animation
