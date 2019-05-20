@@ -23,15 +23,57 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    protected static GameObject carryLocation;
+
+    protected static Transform dirt;
+
     protected static bool carry = false;
+    protected static bool plant = false;
+
+    private void Start()
+    {
+        UpdateCarryLocation(GameObject.FindGameObjectWithTag("CarryLocation"));
+
+        UpdateDirt(GameObject.FindGameObjectWithTag("Dirt").transform);
+    }
+
+    public static GameObject GetCarryLocation()
+    {
+        return carryLocation;
+    }
+
+    public static Transform GetDirt()
+    {
+        return dirt;
+    }
 
     public static bool GetCarry()
     {
         return carry;
     }
 
-    public static void UpdateCarry(bool status)
+    public static bool GetPlant()
     {
-        carry = status;
+        return plant;
+    }
+
+    public static void UpdateCarryLocation(GameObject newLocation)
+    {
+        carryLocation = newLocation;
+    }
+
+    public static void UpdateDirt(Transform newDirt)
+    {
+        dirt = newDirt;
+    }
+
+    public static void UpdateCarry(bool newCarry)
+    {
+        carry = newCarry;
+    }
+
+    public static void UpdatePlant(bool newPlant)
+    {
+        plant = newPlant;
     }
 }
