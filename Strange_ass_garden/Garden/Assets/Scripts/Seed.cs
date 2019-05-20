@@ -6,6 +6,8 @@ public class Seed : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
+    private Transform dirt;
+
     private bool carry = false;
     private bool plant = false;
 
@@ -18,11 +20,16 @@ public class Seed : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sortingOrder = 1;
         }
+
+        if(dirt == null)
+        {
+            dirt = GetComponent<Transform>();
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(Input.GetMouseButtonDown(0) && GameManager.GetCarry() == false && GameManager.GetPlant() == false)
+        if(Input.GetMouseButtonDown(0) && !GameManager.GetCarry() && !GameManager.GetPlant())
         {
             GameManager.UpdateCarry(true);
             GameManager.UpdatePlant(true);
@@ -33,7 +40,7 @@ public class Seed : MonoBehaviour
 
     private void Update()
     {
-        if(carry == true)
+        if(carry)
         {
             transform.position = GameManager.GetCarryLocation().transform.position;
             spriteRenderer.sortingOrder = 3;
@@ -41,9 +48,12 @@ public class Seed : MonoBehaviour
             carry = GameManager.GetCarry();
             plant = GameManager.GetPlant();
         }
-        else if(carry == false && plant == true)
+        else if(carry && plant)
         {
-            transform.position = GameManager.GetDirt().position;
+            if(bitch)
+            {
+
+            }
             spriteRenderer.sortingOrder = 1;
 
             GameManager.UpdatePlant(false);
