@@ -10,6 +10,7 @@ public class Seed : MonoBehaviour
 
     private bool carry = false;
     private bool plant = false;
+    private bool harvest = false;
 
     private int count = 0;
 
@@ -37,6 +38,12 @@ public class Seed : MonoBehaviour
             carry = GameManager.GetCarry();
             plant = GameManager.GetPlant();
         }
+        else if(Input.GetMouseButtonDown(0) && !GameManager.GetCarry() && harvest)
+        {
+            GameManager.UpdateCarry(true);
+
+            carry = GameManager.GetCarry();
+        }
     }
 
     private void Update()
@@ -63,6 +70,15 @@ public class Seed : MonoBehaviour
                     if(count == 10)
                     {
                         Debug.Log("Sapling");
+                    }
+                    else if(count == 100)
+                    {
+                        GameManager.UpdateHarvest(true);
+
+                        harvest = GameManager.GetHarvest();
+
+                        Debug.Log("Harvest that bittchh");
+                        plant = false;
                     }
                     break;
 

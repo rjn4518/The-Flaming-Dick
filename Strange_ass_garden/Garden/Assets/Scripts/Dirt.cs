@@ -9,9 +9,11 @@ public class Dirt : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GameManager.GetCarry() == true)
         {
-            GameManager.UpdateCarry(false);
-
-            GameManager.UpdateDirt(transform);
+            if(!GameManager.GetHarvest())
+            {
+                GameManager.UpdateCarry(false);
+                GameManager.UpdateDirt(transform);
+            }
         }
     }
 }

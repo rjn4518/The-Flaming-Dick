@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     protected static bool carry = false;
     protected static bool plant = false;
+    protected static bool harvest = false;
 
     private void Start()
     {
@@ -57,6 +58,11 @@ public class GameManager : MonoBehaviour
         return plant;
     }
 
+    public static bool GetHarvest()
+    {
+        return harvest;
+    }
+
     public static void UpdateCarryLocation(GameObject newLocation)
     {
         carryLocation = newLocation;
@@ -75,5 +81,10 @@ public class GameManager : MonoBehaviour
     public static void UpdatePlant(bool newPlant)
     {
         plant = newPlant;
+    }
+
+    public static void UpdateHarvest(bool newHarvest)
+    {
+        harvest = newHarvest;
     }
 }
