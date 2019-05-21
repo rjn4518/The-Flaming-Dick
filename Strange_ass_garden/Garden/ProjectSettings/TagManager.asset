@@ -7,6 +7,10 @@ TagManager:
   - CarryLocation
   - Dirt
   - Pizza
+  - Milk
+  - Human
+  - iPhone
+  - Vinyl
   layers:
   - Default
   - TransparentFX

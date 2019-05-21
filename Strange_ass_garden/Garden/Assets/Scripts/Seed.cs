@@ -35,25 +35,24 @@ public class Seed : MonoBehaviour
             GameManager.UpdatePlant(true);
 
             carry = GameManager.GetCarry();
+            plant = GameManager.GetPlant();
         }
     }
 
     private void Update()
     {
+        DirtPosition();
+
         if(carry)
         {
             transform.position = GameManager.GetCarryLocation().transform.position;
             spriteRenderer.sortingOrder = 3;
 
             carry = GameManager.GetCarry();
-            plant = GameManager.GetPlant();
         }
-        else if(carry && plant)
+        else if(!carry && plant)
         {
-            if(bitch)
-            {
-
-            }
+            transform.position = dirt.position;
             spriteRenderer.sortingOrder = 1;
 
             GameManager.UpdatePlant(false);
@@ -67,11 +66,51 @@ public class Seed : MonoBehaviour
                     }
                     break;
 
+                case "Milk":
+                    if(count == 10)
+                    {
+                        Debug.Log("Sapling");
+                    }
+                    break;
+
+                case "Human":
+                    if(count == 10)
+                    {
+                        Debug.Log("Sapling");
+                    }
+                    break;
+
+                case "iPhone":
+                    if(count == 10)
+                    {
+                        Debug.Log("Sapling");
+                    }
+                    break;
+
+                case "Vinyl":
+                    if(count == 10)
+                    {
+                        Debug.Log("Sapling");
+                    }
+                    break;
+
                 default:
                     break;
             }
 
             count++;
+        }
+    }
+
+    private void DirtPosition()
+    {
+        if(!carry && plant && count == 0)
+        {
+            dirt = GameManager.GetDirt();
+        }
+        else
+        {
+            dirt = transform;
         }
     }
 }
