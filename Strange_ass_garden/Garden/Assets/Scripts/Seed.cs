@@ -14,6 +14,19 @@ public class Seed : MonoBehaviour
 
     private int count = 0;
 
+    [SerializeField]
+    private Sprite sapling;
+    [SerializeField]
+    private Sprite pizza;
+    [SerializeField]
+    private Sprite iPhone;
+    [SerializeField]
+    private Sprite milk;
+    [SerializeField]
+    private Sprite vinyl;
+    [SerializeField]
+    private Sprite human;
+
     private void Awake()
     {
         if(spriteRenderer == null)
@@ -69,7 +82,7 @@ public class Seed : MonoBehaviour
                 case "Pizza":
                     if(count == 10)
                     {
-                        Debug.Log("Sapling");
+                        spriteRenderer.sprite = sapling;
                     }
                     else if(count == 100)
                     {
@@ -77,36 +90,87 @@ public class Seed : MonoBehaviour
 
                         harvest = GameManager.GetHarvest();
 
-                        Debug.Log("Harvest that bittchh");
+                        spriteRenderer.sprite = pizza;
+
                         plant = false;
+
+                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
                 case "Milk":
                     if(count == 10)
                     {
-                        Debug.Log("Sapling");
+                        spriteRenderer.sprite = sapling;
+                    }
+                    else if(count == 100)
+                    {
+                        GameManager.UpdateHarvest(true);
+
+                        harvest = GameManager.GetHarvest();
+
+                        spriteRenderer.sprite = milk;
+
+                        plant = false;
+
+                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
                 case "Human":
                     if(count == 10)
                     {
-                        Debug.Log("Sapling");
+                        spriteRenderer.sprite = sapling;
+                    }
+                    else if (count == 100)
+                    {
+                        GameManager.UpdateHarvest(true);
+
+                        harvest = GameManager.GetHarvest();
+
+                        spriteRenderer.sprite = human;
+
+                        plant = false;
+
+                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
                 case "iPhone":
                     if(count == 10)
                     {
-                        Debug.Log("Sapling");
+                        spriteRenderer.sprite = sapling;
+                    }
+                    else if (count == 100)
+                    {
+                        GameManager.UpdateHarvest(true);
+
+                        harvest = GameManager.GetHarvest();
+
+                        spriteRenderer.sprite = iPhone;
+
+                        plant = false;
+
+                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
                 case "Vinyl":
                     if(count == 10)
                     {
-                        Debug.Log("Sapling");
+                        spriteRenderer.sprite = sapling;
+                    }
+                    else if (count == 100)
+                    {
+                        GameManager.UpdateHarvest(true);
+
+                        harvest = GameManager.GetHarvest();
+
+                        spriteRenderer.sprite = vinyl;
+
+                        plant = false;
+
+                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
