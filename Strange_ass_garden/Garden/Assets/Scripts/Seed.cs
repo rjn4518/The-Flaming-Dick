@@ -11,6 +11,7 @@ public class Seed : MonoBehaviour
     private bool carry = false;
     private bool plant = false;
     private bool harvest = false;
+    private bool fuckface = false;
 
     private int count = 0;
 
@@ -24,8 +25,6 @@ public class Seed : MonoBehaviour
     private Sprite milk;
     [SerializeField]
     private Sprite vinyl;
-    [SerializeField]
-    private Sprite human;
 
     private void Awake()
     {
@@ -69,6 +68,42 @@ public class Seed : MonoBehaviour
             spriteRenderer.sortingOrder = 3;
 
             carry = GameManager.GetCarry();
+
+            if(harvest)
+            {
+                fuckface = GameManager.GetFuckFace();
+
+                if(fuckface)
+                {
+                    switch (tag)
+                    {
+                        case "Pizza":
+                            GameManager.UpdateMoney(20);
+                            break;
+
+                        case "Milk":
+                            GameManager.UpdateMoney(5);
+                            break;
+
+                        case "iPhone":
+                            GameManager.UpdateMoney(1000);
+                            break;
+
+                        case "Vinyl":
+                            GameManager.UpdateMoney(100);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    GameManager.UpdateCarry(false);
+                    GameManager.UpdateHarvest(false);
+                    GameManager.UpdateFuckFace(false);
+                    GameManager.UpdatePlant(false);
+                    Destroy(gameObject);
+                }
+            }
         }
         else if(!carry && plant)
         {
@@ -93,8 +128,6 @@ public class Seed : MonoBehaviour
                         spriteRenderer.sprite = pizza;
 
                         plant = false;
-
-                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
@@ -112,27 +145,6 @@ public class Seed : MonoBehaviour
                         spriteRenderer.sprite = milk;
 
                         plant = false;
-
-                        GameManager.UpdateHarvest(false);
-                    }
-                    break;
-
-                case "Human":
-                    if(count == 10)
-                    {
-                        spriteRenderer.sprite = sapling;
-                    }
-                    else if (count == 100)
-                    {
-                        GameManager.UpdateHarvest(true);
-
-                        harvest = GameManager.GetHarvest();
-
-                        spriteRenderer.sprite = human;
-
-                        plant = false;
-
-                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
@@ -150,8 +162,6 @@ public class Seed : MonoBehaviour
                         spriteRenderer.sprite = iPhone;
 
                         plant = false;
-
-                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
@@ -169,8 +179,6 @@ public class Seed : MonoBehaviour
                         spriteRenderer.sprite = vinyl;
 
                         plant = false;
-
-                        GameManager.UpdateHarvest(false);
                     }
                     break;
 
@@ -187,6 +195,26 @@ public class Seed : MonoBehaviour
         if(!carry && plant && count == 0)
         {
             dirt = GameManager.GetDirt();
+
+            if(tag == "Pizza")
+            { 
+                GameManager.UpdatePizzaSeeds(-1);
+            }
+
+            if(tag == "Milk")
+            {
+                GameManager.UpdateMilkSeeds(-1);
+            }
+
+            if(tag == "Vinyl")
+            {
+                GameManager.UpdateVinylSeeds(-1);
+            }
+
+            if(tag == "iPhone")
+            { 
+                GameManager.UpdateiPhoneSeeds(-1);
+            }
         }
         else
         {

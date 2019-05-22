@@ -11,20 +11,6 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
-    private void Awake()
-    {
-        if(instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public GameObject[] publicSeeds;
-
     protected static GameObject[] seeds = new GameObject[100];
 
     protected static int[] startingSeeds = new int[10];
@@ -37,7 +23,18 @@ public class GameManager : MonoBehaviour
 
     protected static int milkSeeds = 0;
 
-    protected static int humanSeeds = 0;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     protected static GameObject carryLocation;
 
@@ -46,68 +43,15 @@ public class GameManager : MonoBehaviour
     protected static bool carry = false;
     protected static bool plant = false;
     protected static bool harvest = false;
+    protected static bool fuckFace = false;
+
+    protected static int money = 1;
 
     private void Start()
     {
         UpdateCarryLocation(GameObject.FindGameObjectWithTag("CarryLocation"));
 
         UpdateDirt(GameObject.FindGameObjectWithTag("Dirt").transform);
-
-
-        //Move to Awake
-        for(int i=0; i<100; i++)
-        {
-            if(i < publicSeeds.Length)
-            {
-                UpdateSeeds(i, publicSeeds[i]);
-            }
-            else
-            {
-                UpdateSeeds(i, publicSeeds[0]);
-            }
-        }
-
-        for(int j=0; j<10; j++)
-        {
-            float random = Random.Range(1f, seeds.Length + 1);
-
-            if(random == publicSeeds.Length + 1f)
-            {
-                random = publicSeeds.Length;
-            }
-
-            UpdateStartingSeeds(j, (int)random);
-            Debug.Log(startingSeeds);
-        }
-
-        for(int k=0; k<10; k++)
-        {
-            switch(GetStartingSeeds(k))
-            {
-                case 1:
-                    UpdatePizzaSeeds(1);
-                    break;
-
-                case 2:
-                    UpdateiPhoneSeeds(1);
-                    break;
-
-                case 3:
-                    UpdateVinylSeeds(1);
-                    break;
-
-                case 4:
-                    UpdateMilkSeeds(1);
-                    break;
-
-                case 5:
-                    UpdateHumanSeeds(1);
-                    break;
-
-                default:
-                    break;
-            }
-        }
     }
 
     public static GameObject GetSeeds(int i)
@@ -140,11 +84,6 @@ public class GameManager : MonoBehaviour
         return milkSeeds;
     }
 
-    public static int GetHumanSeeds()
-    {
-        return humanSeeds;
-    }
-
     public static GameObject GetCarryLocation()
     {
         return carryLocation;
@@ -168,6 +107,16 @@ public class GameManager : MonoBehaviour
     public static bool GetHarvest()
     {
         return harvest;
+    }
+
+    public static bool GetFuckFace()
+    {
+        return fuckFace;
+    }
+
+    public static int GetMoney()
+    {
+        return money;
     }
 
     public static void UpdateSeeds(int i, GameObject j)
@@ -200,11 +149,6 @@ public class GameManager : MonoBehaviour
         milkSeeds += m;
     }
 
-    public static void UpdateHumanSeeds(int h)
-    {
-        humanSeeds += h;
-    }
-
     public static void UpdateCarryLocation(GameObject newLocation)
     {
         carryLocation = newLocation;
@@ -228,5 +172,15 @@ public class GameManager : MonoBehaviour
     public static void UpdateHarvest(bool newHarvest)
     {
         harvest = newHarvest;
+    }
+
+    public static void UpdateFuckFace(bool newFuckFace)
+    {
+        fuckFace = newFuckFace;
+    }
+
+    public static void UpdateMoney(int shit)
+    {
+        money += shit;
     }
 }

@@ -7,7 +7,7 @@ public class Dirt : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.GetCarry() == true)
+        if (Input.GetMouseButtonDown(0) && GameManager.GetCarry())
         {
             if(!GameManager.GetHarvest())
             {
