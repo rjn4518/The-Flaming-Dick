@@ -17,6 +17,11 @@ public class Seed : MonoBehaviour
     private int count = 0;
     private int ripeCount = 0;
 
+    public int pizzaTime = 300;
+    public int iPhoneTime = 1800;
+    public int milkTime = 2700;
+    public int vinylTime = 3600;
+
     public int pizzaShit = 100;
     public int iPhoneShit = 100;
     public int milkShit = 100;
@@ -80,7 +85,40 @@ public class Seed : MonoBehaviour
             fuckface = GameManager.GetFuckFace();
         }
 
-        Debug.Log(shittyshitshit);
+        if(GameManager.GetPizzaSeeds() == 0 && (!plant || !harvest) && tag == "Pizza")
+        {
+            GameManager.UpdateCarry(false);
+            //GameManager.UpdateHarvest(false);
+            GameManager.UpdateFuckFace(false);
+            GameManager.UpdatePlant(false);
+            Destroy(gameObject);
+        }
+        else if(GameManager.GetiPhoneSeeds() == 0 && (!plant || !harvest) && tag == "iPhone")
+        {
+            GameManager.UpdateCarry(false);
+            //GameManager.UpdateHarvest(false);
+            GameManager.UpdateFuckFace(false);
+            GameManager.UpdatePlant(false);
+            Destroy(gameObject);
+        }
+        else if(GameManager.GetMilkSeeds() == 0 && !(plant || !harvest) && tag == "Milk")
+        {
+            GameManager.UpdateCarry(false);
+            //GameManager.UpdateHarvest(false);
+            GameManager.UpdateFuckFace(false);
+            GameManager.UpdatePlant(false);
+            Destroy(gameObject);
+        }
+        else if(GameManager.GetPizzaSeeds() == 0 && (!plant || !harvest) && tag == "Vinyl")
+        {
+            GameManager.UpdateCarry(false);
+            //GameManager.UpdateHarvest(false);
+            GameManager.UpdateFuckFace(false);
+            GameManager.UpdatePlant(false);
+            Destroy(gameObject);
+        }
+
+        Debug.Log(fuckface);
 
         if (carry)
         {
@@ -102,12 +140,12 @@ public class Seed : MonoBehaviour
             switch (tag)
             {
                 case "Pizza":
-                    if(count == 10)
+                    if (count == 10)
                     {
                         spriteRenderer.sprite = sapling;
 						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
-                    else if(count == ripeCount)
+                    else if(count == pizzaTime)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -119,7 +157,7 @@ public class Seed : MonoBehaviour
 
                         //plant = false;
                     }
-                    else if(count == ripeCount + pizzaShit)
+                    else if(count == pizzaTime + pizzaShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
@@ -129,12 +167,12 @@ public class Seed : MonoBehaviour
                     break;
 
                 case "Milk":
-                    if(count == 10)
+                    if (count == 10)
                     {
                         spriteRenderer.sprite = sapling;
 						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
-                    else if(count == ripeCount)
+                    else if(count == milkTime)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -146,7 +184,7 @@ public class Seed : MonoBehaviour
 
                        // plant = false;
                     }
-                    else if(count == ripeCount + milkShit)
+                    else if(count == milkTime + milkShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
@@ -155,12 +193,12 @@ public class Seed : MonoBehaviour
                     break;
 
                 case "iPhone":
-                    if(count == 10)
+                    if (count == 10)
                     {
                         spriteRenderer.sprite = sapling;
 						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
-                    else if (count == ripeCount)
+                    else if (count == iPhoneTime)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -172,7 +210,7 @@ public class Seed : MonoBehaviour
 
                         //plant = false;
                     }
-                    else if(count == ripeCount + iPhoneShit)
+                    else if(count == iPhoneTime + iPhoneShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
@@ -181,12 +219,12 @@ public class Seed : MonoBehaviour
                     break;
 
                 case "Vinyl":
-                    if(count == 10)
+                    if (count == 10)
                     {
                         spriteRenderer.sprite = sapling;
 						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
-                    else if (count == ripeCount)
+                    else if (count == vinylTime)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -198,7 +236,7 @@ public class Seed : MonoBehaviour
 
                         //plant = false;
                     }
-                    else if(count == ripeCount + vinylShit)
+                    else if(count == vinylTime + vinylShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
@@ -251,7 +289,7 @@ public class Seed : MonoBehaviour
                     break;
 
                 case "Vinyl":
-                    if(shittyshitshit)
+                    if(!shittyshitshit)
                     {
                         GameManager.UpdateMoney(100);
                     }
@@ -266,7 +304,7 @@ public class Seed : MonoBehaviour
             }
 
             GameManager.UpdateCarry(false);
-            GameManager.UpdateHarvest(false);
+            //GameManager.UpdateHarvest(false);
             GameManager.UpdateFuckFace(false);
             GameManager.UpdatePlant(false);
             Destroy(gameObject);
