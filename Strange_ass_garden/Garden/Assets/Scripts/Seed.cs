@@ -12,8 +12,15 @@ public class Seed : MonoBehaviour
     private bool plant = false;
     private bool harvest = false;
     private bool fuckface = false;
+    private bool shittyshitshit = false;
 
     private int count = 0;
+    private int ripeCount = 0;
+
+    public int pizzaShit = 100;
+    public int iPhoneShit = 100;
+    public int milkShit = 100;
+    public int vinylShit = 100;
 
     [SerializeField]
     private Sprite sapling;
@@ -25,6 +32,8 @@ public class Seed : MonoBehaviour
     private Sprite milk;
     [SerializeField]
     private Sprite vinyl;
+    [SerializeField]
+    private Sprite shit;
 
     private void Awake()
     {
@@ -38,6 +47,8 @@ public class Seed : MonoBehaviour
         {
             dirt = GetComponent<Transform>();
         }
+
+        ripeCount = Random.Range(100, 20000);
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -53,8 +64,10 @@ public class Seed : MonoBehaviour
         else if(Input.GetMouseButtonDown(0) && !GameManager.GetCarry() && harvest)
         {
             GameManager.UpdateCarry(true);
+            GameManager.UpdatePlant(false);
 
             carry = GameManager.GetCarry();
+            plant = GameManager.GetPlant();
         }
     }
 
@@ -62,64 +75,38 @@ public class Seed : MonoBehaviour
     {
         DirtPosition();
 
-        if(carry)
+        if(harvest)
         {
-            transform.position = GameManager.GetCarryLocation().transform.position;
+            fuckface = GameManager.GetFuckFace();
+        }
+
+        Debug.Log(shittyshitshit);
+
+        if (carry)
+        {
+            transform.position = dirt.position;
             spriteRenderer.sortingOrder = 3;
 
             carry = GameManager.GetCarry();
-
-            if(harvest)
-            {
-                fuckface = GameManager.GetFuckFace();
-
-                if(fuckface)
-                {
-                    switch (tag)
-                    {
-                        case "Pizza":
-                            GameManager.UpdateMoney(20);
-                            break;
-
-                        case "Milk":
-                            GameManager.UpdateMoney(5);
-                            break;
-
-                        case "iPhone":
-                            GameManager.UpdateMoney(1000);
-                            break;
-
-                        case "Vinyl":
-                            GameManager.UpdateMoney(100);
-                            break;
-
-                        default:
-                            break;
-                    }
-
-                    GameManager.UpdateCarry(false);
-                    GameManager.UpdateHarvest(false);
-                    GameManager.UpdateFuckFace(false);
-                    GameManager.UpdatePlant(false);
-                    Destroy(gameObject);
-                }
-            }
         }
         else if(!carry && plant)
         {
             transform.position = dirt.position;
             spriteRenderer.sortingOrder = 1;
 
-            GameManager.UpdatePlant(false);
+            if(count == 0)
+            {
+                GameManager.UpdatePlant(false);
+            }
 
-            switch(tag)
+            switch (tag)
             {
                 case "Pizza":
                     if(count == 10)
                     {
                         spriteRenderer.sprite = sapling;
                     }
-                    else if(count == 100)
+                    else if(count == ripeCount)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -127,7 +114,13 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = pizza;
 
-                        plant = false;
+                        //plant = false;
+                    }
+                    else if(count == ripeCount + pizzaShit)
+                    {
+                        spriteRenderer.sprite = shit;
+                        shittyshitshit = true;
+                        Debug.Log("shit");
                     }
                     break;
 
@@ -136,7 +129,7 @@ public class Seed : MonoBehaviour
                     {
                         spriteRenderer.sprite = sapling;
                     }
-                    else if(count == 100)
+                    else if(count == ripeCount)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -144,7 +137,12 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = milk;
 
-                        plant = false;
+                       // plant = false;
+                    }
+                    else if(count == ripeCount + milkShit)
+                    {
+                        spriteRenderer.sprite = shit;
+                        shittyshitshit = true;
                     }
                     break;
 
@@ -153,7 +151,7 @@ public class Seed : MonoBehaviour
                     {
                         spriteRenderer.sprite = sapling;
                     }
-                    else if (count == 100)
+                    else if (count == ripeCount)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -161,7 +159,12 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = iPhone;
 
-                        plant = false;
+                        //plant = false;
+                    }
+                    else if(count == ripeCount + iPhoneShit)
+                    {
+                        spriteRenderer.sprite = shit;
+                        shittyshitshit = true;
                     }
                     break;
 
@@ -170,7 +173,7 @@ public class Seed : MonoBehaviour
                     {
                         spriteRenderer.sprite = sapling;
                     }
-                    else if (count == 100)
+                    else if (count == ripeCount)
                     {
                         GameManager.UpdateHarvest(true);
 
@@ -178,7 +181,12 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = vinyl;
 
-                        plant = false;
+                        //plant = false;
+                    }
+                    else if(count == ripeCount + vinylShit)
+                    {
+                        spriteRenderer.sprite = shit;
+                        shittyshitshit = true;
                     }
                     break;
 
@@ -188,6 +196,65 @@ public class Seed : MonoBehaviour
 
             count++;
         }
+
+        if (fuckface)
+        {
+            switch (tag)
+            {
+                case "Pizza":
+                    if(!shittyshitshit)
+                    {
+                        GameManager.UpdateMoney(20);
+                    }
+                    else
+                    {
+                        GameManager.UpdateMoney(-10);
+                    }
+                    break;
+
+                case "Milk":
+                    if(!shittyshitshit)
+                    {
+                        GameManager.UpdateMoney(5);
+                    }
+                    else
+                    {
+                        GameManager.UpdateMoney(-10);
+                    }
+                    break;
+
+                case "iPhone":
+                    if(!shittyshitshit)
+                    {
+                        GameManager.UpdateMoney(1000);
+                    }
+                    else
+                    {
+                        GameManager.UpdateMoney(-10);
+                    }
+                    break;
+
+                case "Vinyl":
+                    if(shittyshitshit)
+                    {
+                        GameManager.UpdateMoney(100);
+                    }
+                    else
+                    {
+                        GameManager.UpdateMoney(-10);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            GameManager.UpdateCarry(false);
+            GameManager.UpdateHarvest(false);
+            GameManager.UpdateFuckFace(false);
+            GameManager.UpdatePlant(false);
+            Destroy(gameObject);
+        }   
     }
 
     private void DirtPosition()
@@ -215,6 +282,10 @@ public class Seed : MonoBehaviour
             { 
                 GameManager.UpdateiPhoneSeeds(-1);
             }
+        }
+        else if(carry)
+        {
+            dirt = GameManager.GetCarryLocation().transform;
         }
         else
         {
