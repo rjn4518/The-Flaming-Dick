@@ -105,6 +105,7 @@ public class Seed : MonoBehaviour
                     if(count == 10)
                     {
                         spriteRenderer.sprite = sapling;
+						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
                     else if(count == ripeCount)
                     {
@@ -114,6 +115,8 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = pizza;
 
+						FindObjectOfType<AudioManager> ().Play ("Pizza Plant Harvestable");
+
                         //plant = false;
                     }
                     else if(count == ripeCount + pizzaShit)
@@ -121,6 +124,7 @@ public class Seed : MonoBehaviour
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
                         Debug.Log("shit");
+						FindObjectOfType<AudioManager> ().Play ("Plant Turned to Shit");
                     }
                     break;
 
@@ -128,6 +132,7 @@ public class Seed : MonoBehaviour
                     if(count == 10)
                     {
                         spriteRenderer.sprite = sapling;
+						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
                     else if(count == ripeCount)
                     {
@@ -137,12 +142,15 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = milk;
 
+						FindObjectOfType<AudioManager> ().Play ("Milk Plant Harvestable");
+
                        // plant = false;
                     }
                     else if(count == ripeCount + milkShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
+						FindObjectOfType<AudioManager> ().Play ("Plant Turned to Shit");
                     }
                     break;
 
@@ -150,6 +158,7 @@ public class Seed : MonoBehaviour
                     if(count == 10)
                     {
                         spriteRenderer.sprite = sapling;
+						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
                     else if (count == ripeCount)
                     {
@@ -159,12 +168,15 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = iPhone;
 
+						FindObjectOfType<AudioManager> ().Play ("iPhone Plant Harvestable");
+
                         //plant = false;
                     }
                     else if(count == ripeCount + iPhoneShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
+						FindObjectOfType<AudioManager> ().Play ("Plant Turned to Shit");
                     }
                     break;
 
@@ -172,6 +184,7 @@ public class Seed : MonoBehaviour
                     if(count == 10)
                     {
                         spriteRenderer.sprite = sapling;
+						FindObjectOfType<AudioManager> ().Play ("Plant Seed");
                     }
                     else if (count == ripeCount)
                     {
@@ -181,12 +194,15 @@ public class Seed : MonoBehaviour
 
                         spriteRenderer.sprite = vinyl;
 
+						FindObjectOfType<AudioManager> ().Play ("Vinyl Plant Harvestable");
+
                         //plant = false;
                     }
                     else if(count == ripeCount + vinylShit)
                     {
                         spriteRenderer.sprite = shit;
                         shittyshitshit = true;
+						FindObjectOfType<AudioManager> ().Play ("Plant Turned to Shit");
                     }
                     break;
 

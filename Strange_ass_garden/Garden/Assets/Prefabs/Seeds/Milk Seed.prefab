@@ -78,16 +78,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a38adafec8f04181a6c99eeae6739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pizzaShit: 800
-  iPhoneShit: 300
-  milkShit: 1000
-  vinylShit: 600
+  pizzaShit: 30
+  iPhoneShit: 60
+  milkShit: 90
+  vinylShit: 180
   sapling: {fileID: 21300000, guid: ff8190269a373479c9ad5a92eb2ed6d8, type: 3}
   pizza: {fileID: 21300000, guid: cfc33d8f4aaa04d398401720e0af30d9, type: 3}
   iPhone: {fileID: 21300000, guid: 08ed30db818de407288ebd50194ec0c2, type: 3}
   milk: {fileID: 21300000, guid: b6113c2aa32b54f3e9a14c8d876c0188, type: 3}
   vinyl: {fileID: 21300000, guid: e8fed4a38726247ab9e9b133e812084d, type: 3}
-  shit: {fileID: 0}
+  shit: {fileID: 21300000, guid: 2ddb4bd38d418467d81905907ec70212, type: 3}
 --- !u!212 &212099725057589858
 SpriteRenderer:
   m_ObjectHideFlags: 1
