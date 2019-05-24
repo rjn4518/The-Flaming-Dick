@@ -18,9 +18,9 @@ public class Seed : MonoBehaviour
     private int ripeCount = 0;
 
     public int pizzaTime = 300;
-    public int iPhoneTime = 1800;
-    public int milkTime = 2700;
-    public int vinylTime = 3600;
+    public int iPhoneTime = 600;
+    public int milkTime = 900;
+    public int vinylTime = 1200;
 
     public int pizzaShit = 100;
     public int iPhoneShit = 100;
