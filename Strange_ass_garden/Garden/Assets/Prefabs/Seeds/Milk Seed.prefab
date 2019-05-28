@@ -78,10 +78,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a38adafec8f04181a6c99eeae6739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pizzaTime: 300
+  iPhoneTime: 1800
+  milkTime: 2700
+  vinylTime: 3600
   pizzaShit: 300
-  iPhoneShit: 600
+  iPhoneShit: 150
   milkShit: 900
-  vinylShit: 1800
+  vinylShit: 200
   sapling: {fileID: 21300000, guid: ff8190269a373479c9ad5a92eb2ed6d8, type: 3}
   pizza: {fileID: 21300000, guid: cfc33d8f4aaa04d398401720e0af30d9, type: 3}
   iPhone: {fileID: 21300000, guid: 08ed30db818de407288ebd50194ec0c2, type: 3}

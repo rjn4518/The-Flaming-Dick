@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StalactiteScript : MonoBehaviour
 {
+    public float health = 50f;
+    public float eggDamage = 25f;
+
     [SerializeField]
     private LayerMask playerLayer;
 
@@ -43,6 +46,11 @@ public class StalactiteScript : MonoBehaviour
         {
             StartCoroutine(StalactiteTrigger());
         }
+
+        if(health <= 0f)
+        {
+            Destroy(gameObject);
+        }
 	}
 
     private IEnumerator StalactiteTrigger()
@@ -58,6 +66,10 @@ public class StalactiteScript : MonoBehaviour
         if(collision.tag == "PlayerSprite")
         {
             GameMaster.UpdateHealth(damage);
+        }
+        else if(collision.tag == "Egg")
+        {
+            health -= eggDamage;
         }
     }
 }

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50198329383793146}
   m_Layer: 0
   m_Name: Icicle2a
-  m_TagString: Untagged
+  m_TagString: Icicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

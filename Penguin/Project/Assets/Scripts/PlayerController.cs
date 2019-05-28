@@ -8,6 +8,8 @@ public class PlayerController : CustomPhysics
     private Collider2D idleCollider;
     private Collider2D slidingCollider;
 
+    public GameObject egg;
+
     public float maxSpeed = 7;      // Player's walking speed
     public float slideSpeed = 10;  // Player's sliding speed
     public float jumpSpeed = 7;  // Player's jumping speed
@@ -15,6 +17,7 @@ public class PlayerController : CustomPhysics
     public float floatSpeed = 3f;
     public float glideSpeed = -1f;
     public float horizontalForce = 10f;  // Force applied to player moving on ice
+    public float eggSpeed = 10f;
 
     private Animator anim;
     private SpriteRenderer spriteRenderer;
@@ -99,6 +102,20 @@ public class PlayerController : CustomPhysics
                 Abilities.SetSlide(false);  // If not pressing X, set velocity to walking speed
             }
 
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                Abilities.SetEggThrow(true);
+
+                if(GameMaster.GetCurrentStamina() < (GameMaster.GetMaxStamina() / 3))
+                {
+                    Abilities.SetEggThrow(false);
+                }
+            }
+            else
+            {
+                Abilities.SetEggThrow(false);
+            }
+
             if(!grounded)
             {
                 if (Input.GetKey(KeyCode.LeftShift))
@@ -119,6 +136,7 @@ public class PlayerController : CustomPhysics
             Slide(Abilities.GetSlide(), ceiling, move);
             Fly(Abilities.GetFly());
             Glide(Abilities.GetGlide());
+            Egg(Abilities.GetEggThrow());
         }
 
 
@@ -197,6 +215,15 @@ public class PlayerController : CustomPhysics
         {
             velocity.y = glideSpeed;
             GameMaster.UpdateStamina(-1f);
+        }
+    }
+
+    private void Egg(bool _egg)
+    {
+        if(_egg && GameMaster.GetCurrentStamina() > 0f && !Abilities.GetSlide())
+        {
+            Instantiate(egg, transform.position, transform.rotation);
+            GameMaster.UpdateStamina(-GameMaster.GetMaxStamina() / 3);
         }
     }
 }

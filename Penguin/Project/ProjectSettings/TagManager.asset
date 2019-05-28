@@ -27,6 +27,8 @@ TagManager:
   - Icicle
   - Trash
   - TrashCan
+  - Egg
+  - Hook
   layers:
   - Default
   - TransparentFX

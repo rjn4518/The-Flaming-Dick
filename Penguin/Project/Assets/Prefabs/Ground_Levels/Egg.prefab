@@ -9,45 +9,66 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1943335116122486}
+  m_RootGameObject: {fileID: 1030344655531738}
   m_IsPrefabParent: 1
---- !u!1 &1943335116122486
+--- !u!1 &1030344655531738
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4826352370604040}
-  - component: {fileID: 212131469599918706}
-  - component: {fileID: 61563233283220742}
-  - component: {fileID: 114379844317453128}
+  - component: {fileID: 4375031040785064}
+  - component: {fileID: 212497799475398058}
+  - component: {fileID: 50206695343360854}
+  - component: {fileID: 114859516144731916}
+  - component: {fileID: 58856960979140706}
   m_Layer: 0
-  m_Name: Vinyl Seed
-  m_TagString: Vinyl
+  m_Name: Egg
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4826352370604040
+--- !u!4 &4375031040785064
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943335116122486}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0.29, z: 0}
+  m_GameObject: {fileID: 1030344655531738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61563233283220742
-BoxCollider2D:
+--- !u!50 &50206695343360854
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943335116122486}
+  m_GameObject: {fileID: 1030344655531738}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58856960979140706
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030344655531738}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -55,49 +76,31 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.38, y: 0.38}
-    newSize: {x: 0.38, y: 0.38}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.38}
-  m_EdgeRadius: 0
---- !u!114 &114379844317453128
+  m_Radius: 0.1
+--- !u!114 &114859516144731916
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943335116122486}
+  m_GameObject: {fileID: 1030344655531738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db3a38adafec8f04181a6c99eeae6739, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a04a09e06c8af24584fc7d159a7d40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pizzaTime: 300
-  iPhoneTime: 1800
-  milkTime: 2700
-  vinylTime: 3600
-  pizzaShit: 300
-  iPhoneShit: 150
-  milkShit: 900
-  vinylShit: 200
-  sapling: {fileID: 21300000, guid: ff8190269a373479c9ad5a92eb2ed6d8, type: 3}
-  pizza: {fileID: 21300000, guid: cfc33d8f4aaa04d398401720e0af30d9, type: 3}
-  iPhone: {fileID: 21300000, guid: 08ed30db818de407288ebd50194ec0c2, type: 3}
-  milk: {fileID: 21300000, guid: b6113c2aa32b54f3e9a14c8d876c0188, type: 3}
-  vinyl: {fileID: 21300000, guid: e8fed4a38726247ab9e9b133e812084d, type: 3}
-  shit: {fileID: 21300000, guid: 2ddb4bd38d418467d81905907ec70212, type: 3}
---- !u!212 &212131469599918706
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967039
+  eggSpeedX: 5
+  eggSpeedY: 5
+  duration: 1
+--- !u!212 &212497799475398058
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943335116122486}
+  m_GameObject: {fileID: 1030344655531738}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -126,12 +129,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e58049af03a6c493497d24628ab6c664, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.9117647, g: 0.0067041586, b: 0.0067041586, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.38, y: 0.38}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
