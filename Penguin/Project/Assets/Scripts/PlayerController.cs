@@ -220,7 +220,7 @@ public class PlayerController : CustomPhysics
 
     private void Egg(bool _egg)
     {
-        if(_egg && GameMaster.GetCurrentStamina() > 0f && !Abilities.GetSlide())
+        if(_egg && GameMaster.GetCurrentStamina() >= (GameMaster.GetMaxStamina() / 3) && !Abilities.GetSlide())
         {
             Instantiate(egg, transform.position, transform.rotation);
             GameMaster.UpdateStamina(-GameMaster.GetMaxStamina() / 3);

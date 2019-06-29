@@ -19,6 +19,11 @@ public class Egg : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<CircleCollider2D>();
+
+        if(Input.GetAxis("Horizontal") < -0.1f)
+        {
+            eggSpeedX = -eggSpeedX;
+        }
     }
 
     void FixedUpdate ()

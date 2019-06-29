@@ -29,6 +29,8 @@ TagManager:
   - TrashCan
   - Egg
   - Hook
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
