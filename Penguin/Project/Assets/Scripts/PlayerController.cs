@@ -150,6 +150,29 @@ public class PlayerController : CustomPhysics
         anim.SetBool("Slide", Abilities.GetSlide());
     }
 
+    protected override void DetectEdge()
+    {
+        base.DetectEdge();
+
+        bool walkingCollider = false;
+        bool slideCollider = false;
+
+        if(EdgeDetector.GetEdge())
+        {
+            walkingCollider = idleCollider.enabled;
+            slideCollider = slidingCollider.enabled;
+
+            slidingCollider.enabled = false;
+            idleCollider.enabled = true;
+        }
+        else if(EdgeDetector.GetOnEdge() && !EdgeDetector.GetEdge())
+        {
+            slidingCollider.enabled = slideCollider;
+            idleCollider.enabled = walkingCollider;
+            EdgeDetector.SetOnEdge(false);
+        }
+    }
+
     private void Slide(bool _sliding, bool ceiling, float _move)
     {
         //Vector2 _targetVelocity;
@@ -164,7 +187,7 @@ public class PlayerController : CustomPhysics
 
         if(_sliding)
         {
-            if(idleCollider != null && slidingCollider!= null  && grounded)
+            if(idleCollider != null && slidingCollider!= null  && grounded && !EdgeDetector.GetEdge())
             {
                 idleCollider.enabled = false;
                 slidingCollider.enabled = true;

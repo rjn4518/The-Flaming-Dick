@@ -8,17 +8,18 @@ public class SealLion : MonoBehaviour
     public float eggDamage = 20f;
     public float sealLionSpeed = 0.1f;
 
+    private SpriteRenderer sprite;
     private Vector3 leftPos;
     private Vector3 rightPos;
     private Vector3 currentPos;
     private Transform startPos;
     private int count = 0;
     private static float damage = -50f;
-    private Rigidbody2D rb;
+    private float startTime = 0f;
 
 	void Start ()
 	{
-        rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
 
         Transform[] endPoints = new Transform[2];
 
@@ -37,9 +38,11 @@ public class SealLion : MonoBehaviour
         }
 
         startPos = transform;
-	}
+        startTime = Time.time;
 
-	void Update ()
+    }
+
+    void Update ()
 	{
 		if(health <= 0f)
         {
@@ -49,35 +52,63 @@ public class SealLion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(count == 0)
+        float dist = 0f;
+        float length = 0f;
+        float fraction = 0f;
+        float currentTime = Time.time;
+
+        if (count == 0)
         {
-            transform.position = Vector3.Lerp(startPos.position, leftPos, sealLionSpeed);
+            dist = sealLionSpeed * (currentTime - startTime);
+
+            length = Vector3.Distance(startPos.position, leftPos);
+
+            fraction = dist / length;
+
+            transform.position = Vector3.Lerp(startPos.position, leftPos, fraction);
 
             if(transform.position.x <= leftPos.x + 0.01f)
             {
                 count++;
                 currentPos = transform.position;
+                startTime = Time.deltaTime;
+                sprite.flipX = !sprite.flipX;
             }
         }
         else if((count & 1) == 1)
         {
-            transform.position = Vector3.Lerp(currentPos, rightPos, -sealLionSpeed);
-            Debug.Log("Bitch");
+            dist = sealLionSpeed * (currentTime - startTime);
+
+            length = Vector3.Distance(currentPos, rightPos);
+
+            fraction = dist / length;
+
+            transform.position = Vector3.Lerp(currentPos, rightPos, fraction);
 
             if (transform.position.x >= rightPos.x - 0.1f)
             {
                 count++;
                 currentPos = transform.position;
+                startTime = Time.time;
+                sprite.flipX = !sprite.flipX;
             }
         }
         else if((count & 1) == 0)
         {
-            transform.position = Vector3.Lerp(currentPos, leftPos, sealLionSpeed);
+            dist = sealLionSpeed * (currentTime - startTime);
+
+            length = Vector3.Distance(currentPos, leftPos);
+
+            fraction = dist / length;
+
+            transform.position = Vector3.Lerp(currentPos, leftPos, fraction);
 
             if(transform.position.x <= leftPos.x + 0.1f)
             {
                 count++;
                 currentPos = transform.position;
+                startTime = Time.time;
+                sprite.flipX = !sprite.flipX;
             }
         }
     }

@@ -46,9 +46,15 @@ public class CustomPhysics : MonoBehaviour
     {
         //targetVelocity = Vector2.zero;
         ComputeVelocity();  // Function defined in the player controller
+        DetectEdge();
 	}
 
     protected virtual void ComputeVelocity()
+    {
+
+    }
+
+    protected virtual void DetectEdge()
     {
 
     }
@@ -163,28 +169,24 @@ public class CustomPhysics : MonoBehaviour
         rb.position = rb.position + move.normalized * distance;  // Sets new object position
     }
 
-    float Rotation()  // Rotates the object in the direction ground's normal vector
+    // Using the dot product, we can determine the direction and angle of the incline and rotate the player accordingly
+    float Rotation() 
     {
         float rotationAngle;
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------
-         * Math Lesson:
-         * 
-         * X . Y = |X||Y|cos(theta)  -->  theta = cos^(-1)((X.Y)/(|X||Y|))
-         * Since X and Y are unit vectors, |X||Y| = 1
-         * theta = cos^(-1)(X.Y)
-         * 
-         * In Words:
-         * The angle between the player's rotation and the vector normal to the ground is given by the inverse cosine of the dot product of those vectors, so what we
-         * want to do is rotate the player by that angle.
-         * And that is what is done below.
-         -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        if (Vector2.Dot(Vector2.right, groundNormal) < 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 180 &&
-            Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 130)  // Math...
+
+        // If positive, we have a leftward incline; if negative, we have a rightward incline
+        float hillDirection = Vector2.Dot(Vector2.right, groundNormal);
+
+        // Gives us the anlge of the hill
+        float hillAngle = Mathf.Acos(hillDirection) * Mathf.Rad2Deg;
+
+        // If we have a rightward facing hill with angle between 135deg and 180deg
+        if (hillAngle < 180 && hillAngle > 130)
         {
             rotationAngle = 45f;
         }
-        else if (Vector2.Dot(Vector2.right, groundNormal) > 0 && Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg < 50 &&
-                 Mathf.Acos(Vector2.Dot(Vector2.right, groundNormal)) * Mathf.Rad2Deg > 0)  // Math...
+        // If we have a leftward facing hill with angle between 0deg and 50deg
+        else if (hillAngle < 50 && hillAngle > 0)
         {
             rotationAngle = -45f;
         }
